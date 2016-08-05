@@ -156,6 +156,8 @@ npm ls
 import Localcache from 'react-native-localcache';
 "```"
 #是h1,##h2,###h3...类似,对于写过html的很容易理解
+- 0.0.1 update
+
 ```
 # End
 > GoodLuck!

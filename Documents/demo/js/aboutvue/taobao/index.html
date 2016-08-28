@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝网</title>
+    <script src="../vue/dist/vue.min.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '#webpage',
+                data: {
+                    input: 'hello!!!'
+                }
+            });
+        }
+        var s = 'asfasfasfasdf';
+        s= s.split('');
+        for (var i = 0; i < s.length; i++) {
+            if (s[i] == 's') {
+                s.splice(i, 1);
+            }
+        }
+        console.log(s);
+    </script>
+</head>
+<body>
+
+<div id="webpage">
+    <p>双重数据绑定{{hello}}<=> v-model</p>
+
+    <p> MVVM(model & view & viewmodel )</p>
+
+    <p>{{hello}}</p>
+    <input v-model="hello">
+</div>
+
+</body>
+</html>

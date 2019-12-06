@@ -2,11 +2,11 @@
 ---------------------------------------------react 路由
 
 
-有hashHistory和browserHistory，
+### 有hashHistory和browserHistory，
 
-1,hashHistory由hash#控制跳转，用于正式线上部署，
+//hashHistory由hash#控制跳转，用于正式线上部署，
 
-2,browserHistory就是普通的地址跳转，用于开发阶段。
+//browserHistory就是普通的地址跳转，用于开发阶段。
 
 
 

@@ -1,3 +1,17 @@
+## ----------------------------------目录索引
+
+
+
+/usr        系统级的目录  可以理解为C:/Windows/
+/usr/lib    理解为C:/Windows/System32
+/usr/local  用户级的程序目录  可以理解为C:/Progrem Files/
+/usr/src    系统级的源码目录
+/usr/local/src  用户级的源码目录
+
+/opt 用户级的程序目录  可以理解为D:/Software ,opt有可选的意思
+
+
+
 ## ----------------------------------云解释
 
 * SaaS
@@ -33,9 +47,20 @@ jboss是一个管理ejb的容器和服务器 不支持servlet/jsp
 
 RDMBS是一个关系型数据库
 
+
+### mac 本地打不开localhost
+
+//创建apache2
+>sudo mkdir /private/var/log/apache2
+
 ----------------------------------环境变量
 >vi /etc/profile
 export NODE_ENV=production
+
+
+
+//linux添加用户
+>useradd -u 600 -d /home/ppa -g users -m ppa
 
 ----------------------------------BSD
 >Unix的衍生系统
@@ -90,11 +115,20 @@ dev是device（设备）的缩写。这个目录下是所有Linux的外部设备
 文件系统
 
 
+### VirtualBox与docker的区别
+
+> VirtualBox虚拟硬件， docker虚拟系统环境
+
 
 ### 查找文件
 
 > find / -name mysql
 
+
+### apt-get更新出错
+
+//更换老的源
+>sudo sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 
 ### wget 
 >用于下载文件
@@ -376,7 +410,7 @@ Package Manager(软件包管理器)
 
 
 --------------------------------------netstat查看所有端口进程
-> netstart -a 
+> netstat -a 
 
 linux
 >netstat -ntlp   //查看当前所有tcp端口·

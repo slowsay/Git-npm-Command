@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, target-densitydpi=device-dpi, user-scalable=no"/>
+    <title>wx h5</title>
+    <script>
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]);
+            return null; //返回参数值
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .clear {
+            display: block;
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+<h3>weixin h5</h3>
+
+<div class="pic">
+
+</div>
+<button class="clear">清除</button>
+<script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+<script>
+    var url = 'https://api.taoring.com', storage = window.localStorage, getuserinfo, openid, token;
+    var Api = {
+        login: '/weixin/login',
+        getOpenid: '/weixin/getOpenid',
+        getUserInfo: '/weixin/getUserInfo',
+        getToken: '/weixin/getToken',
+    }
+    $(function () {
+        console.log(storage.getItem('getUserInfo'));
+        if (storage.getItem('getUserInfo')) {
+            setContext();
+        } else {
+            $.ajax({
+                url: url + Api.getOpenid,
+                type: 'post',
+                dataType: 'json',
+                data: {code: getUrlParam('code')},
+                success: function (e) {
+                    openid = e.data.openid, token = e.data.access_token
+                    if (e.status == 1) {
+                        if (e.data.errcode) {
+                            window.location.href = 'https://api.taoring.com';
+                        } else {
+                            $.ajax({
+                                url: url + Api.getUserInfo,
+                                type: 'post',
+                                dataType: 'json',
+                                data: {token: token, openid: openid},
+                                success: function (e) {
+                                    if (e.data.errcode) {
+                                        window.location.href = 'https://api.taoring.com';
+                                    }
+                                    else {
+                                        storage.setItem('getUserInfo', JSON.stringify(e.data));
+                                        setContext();
+                                    }
+                                }
+                            })
+                        }
+                    }
+                }
+            })
+        }
+        function setContext() {
+            getuserinfo = JSON.parse(storage.getItem('getUserInfo'));
+            console.log(getuserinfo);
+            if (getuserinfo) {
+                $('h3').text(getuserinfo.nickname)
+                $('.pic').html('<img src=' + getuserinfo.headimgurl + ' width="50" />');
+            }
+        }
+
+        $('.clear').on('touchend', null, function () {
+            storage.clear();
+            alert('清空');
+        })
+        //    $.post(Api.login, {phone: 15216831310, password: 2143, region: '86'}, function (e) {
+        //        $('.msg').append('<p>' + JSON.stringify(e) + '</p>');
+        //        $.post(Api.getUserInfo, {}, function (e) {
+        //            $('.msg').append(JSON.stringify(e));
+        //        })
+        //    })
+    })
+</script>
+</body>
+</html>

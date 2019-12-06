@@ -1,0 +1,32 @@
+<%- include inc/header.html %>
+<div class="login">
+    <ul class="list">
+        <li>用户名称: <span><%=name%></span></li>
+        <li>用户信息: <%=user_info%></li>
+    </ul>
+    <span id="qqLoginBtn"></span>
+</div>
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="1106671371"
+        data-redirecturi=""
+        charset="utf-8"></script>
+
+<script type="text/javascript">
+    QC.Login({
+        btnId: "qqLoginBtn"
+    });
+    //退出登录
+    QC.Login.signOut();
+    if (QC.Login.check()) {
+        console.log('登录状态')
+    }
+    else {
+        console.log('未登录');
+    }
+    //获取数据
+    QC.Login.getMe(function (openId, accessToken) {
+//        console.log(openId, accessToken);
+    })
+</script>
+
+
+<%- include inc/footer.html %>

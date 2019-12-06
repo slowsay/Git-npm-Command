@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ME2Group</title>
+    <style>
+        body {
+            font-size: 12px;
+        }
+    </style>
+    <script>
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]);
+            return null; //返回参数值
+        }
+    </script>
+</head>
+<body>
+<script>
+    var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?',
+            reurl = getUrlParam('url'),
+            other = '&response_type=code&scope=snsapi_userinfo&state=me2group#wechat_redirect',
+            appid = 'wxfbe0c4b86a354089';
+    reurl = encodeURIComponent(reurl);
+    setTimeout(function () {
+        window.location.href = url + 'appid=' + appid + '&redirect_uri=' +
+                reurl + other;
+    }, 300)
+</script>
+
+</body>
+</html>

@@ -73,6 +73,10 @@ CMD     /usr/sbin/sshd -D
 
 
 
+docker run -it -p 40400:40400 -u root -dit --network fthis --name node.test  -v /tmp/bonds.txt:/var/lib/rnode/validators/bonds.txt -v /tmp/2:/var/lib/rnode rchain/rnode:latest run --validator-private-key 07079abafe8e84ce1c6de0ad7199f9e8d09d40c22b5821dde854f58c15145f9b -b rnode://e794817f871b68c344c823e2b2934686647b1c06@172.23.0.2:30304
+
+
+
 
 
 

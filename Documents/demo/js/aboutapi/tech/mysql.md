@@ -28,7 +28,7 @@ or
 3) //然后新建cmd窗口，运行无密码登录操作
 >mysql -u root
 //然后修改root密码，
-mysql>grant all privileges on *.* to 'root'@'localhost' identified by '123456' with grant option;
+mysql>grant all privileges on *.* to 'cache'@'localhost' identified by 'PPLIVE123' with grant option;
 上面一些解析：
 
 root@localhost是用户
@@ -131,10 +131,10 @@ success!
 //先进入mysql
 >mysql -u root -p
 //允许固定IP
-mysql>grant all privileges on *.* to ‘root’@'116.62.18.201’ identified by ‘root’ with grant option; 
+mysql>grant all privileges on *.* to 'cache'@'183.129.146.2' identified by '123456' with grant option; 
 
 //允许所有ip
-mysql>GRANT ALL PRIVILEGES ON *.* TO ‘testuser’@'%’ IDENTIFIED BY ‘testpassword’ WITH GRANT OPTION; 
+mysql>GRANT ALL PRIVILEGES ON *.* TO 'root'@'*' IDENTIFIED BY 'root' WITH GRANT OPTION; 
 
 //修改密码登录
 mysql>grant all privileges on *.* to 'admin'@'183.129.146.2' identified by '123456';
@@ -156,8 +156,11 @@ grant all privileges on *.* to 'root'@'127.0.0.1' identified by '123456';
 　　>mysql -u root -p
 　　>密码
 
-　　//创建用户
-　　mysql> insert into mysql.user（Host,User,Password） values（‘localhost’，'jeecn’，password（‘jeecn’））;
+　　//创建用户,不能这么操作
+　　mysql> insert into mysql.user(Host,User,Password) values('localhost','test',password('12345678'));
+	//应该是这样
+
+	>GRANT USAGE ON *.* TO 'test'@'localhost' IDENTIFIED BY '12345678' WITH GRANT OPTION;
 
 　　//刷新系统权限表
 　　mysql>flush privileges;
@@ -383,6 +386,24 @@ pid-file=/usr/local/mysql
 #### 数据表重置归0
 >truncate table group_members;
 
+#### 查看表的编码
+>show create table tablename
+
+####  修改数据库为utf-8
+>ALTER DATABASE h5game DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci 
+
+#### 修改表为utf-8
+>ALTER TABLE users DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+#### 查看表结构编码
+>show create table users;
+
+#### 查看数据库结构编码
+>show create database h5game;
+
+#### 重要
+//修改后必须重启数据库
+
 
 #### InnoDB与XtrDB区别
 
@@ -403,4 +424,51 @@ pid-file=/usr/local/mysql
 ### 如何开始安装mysql数据库，出现mysql密码不对
 就直接回车，默认为无密码
 
+
+### ======数据库备份========
+
+一，数据库的备份与导入
+
+1)，数据库的备份
+
+1.导出整个数据库
+mysqldump -u 用户名 -p 数据库名 > 导出的文件名
+例：mysqldump -u dbadmin -p myblog > /home/zhangy/blog/database_bak/myblog.sql
+
+2.导出一个表
+mysqldump -u 用户名 -p 数据库名 表名> 导出的文件名
+例：mysqldump -u dbadmin -p myblog wp_users> /home/zhangy/blog/database_bak/blog_users.sql
+
+3.导出一个数据库结构
+mysqldump -u dbadmin -p -d --add-drop-table myblog > /home/zhangy/blog/database_bak/blog_struc.sql
+说明：-d 没有数据 --add-drop-table 在每个create语句之前增加一个drop table
+
+4.导出数据库一个表结构
+mysqldump -u dbadmin -p -d --add-drop-table myblog  wp_users> /home/zhangy/blog/database_bak/blog_users_struc.sql
+说明：-d 没有数据 --add-drop-table 在每个create语句之前增加一个drop table
+
+ 
+
+2)，数据库的导入
+
+1，用 mysqldump 备份出来的文件是一个可以直接倒入的 SQL 脚本，有两种方法可以将数据导入。
+例如：
+#/usr/local/mysql/bin/mysql -u root -p *****  myblog   < /home/zhangy/blog/database_bak/myblog.sql
+
+这种方法，我以前经常现在很少用了，因为很容易产生乱码，因为：
+
+a,导出数据库时，你如果忘了设置导出字符集的话，在导入的时候，就有可能会出问题.
+
+b,假如，你导出时设置导出时设置了utf8的编码，但是你又把你的数据库现在的字符集改成了gb2312的.这样又会乱码。
+
+2，用 source 语句
+例如：
+
+mysql -u dbadmin -p
+
+use myblog;
+
+set names utf8;  #这里的字符集根你的将要导入的数据库的字符集一至。
+
+source /home/zhangy/blog/database_bak/myblog.sql;
 

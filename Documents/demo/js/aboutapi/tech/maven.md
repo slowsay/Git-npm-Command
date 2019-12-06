@@ -74,6 +74,20 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 
 
+### maven中，不认库包
+[maven所有库](https://repo.maven.apache.org/maven2/)
+
+问题症状：
+	不能引入junit包，不显示包
+	有包，不能引入类库
+
+解决：
+> 可以尝试去project struct中查看，是否引入正确
+> 删除之前的包重新下载
+> 
+
+
+
 
 
 

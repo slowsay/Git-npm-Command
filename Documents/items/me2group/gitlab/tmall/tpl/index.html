@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>demo</title>
+</head>
+<body>
+<div class="loading">
+    <div class="bg"></div>
+    <div class="con"><p>0%</p>loading...</div>
+</div>
+<div class="msg hide"></div>
+<section class="games hide">
+    <div class="score">0</div>
+    <div class="tips"></div>
+    <div class="power">
+        <li></li>
+        <li></li>
+        <li></li>
+        <b></b>
+    </div>
+    <div class="music">on</div>
+    <div class="countdown hide">10</div>
+    <!--第一场景-->
+    <section class="one">
+        <div class="stage hide"><img src="./tmall/images/stage.png" width="100%"/></div>
+        <div class="tan"><i></i></div>
+        <!--<div class="flush hide">-->
+        <!--<li><img src="./tmall/images/flush.png" height="100"/></li>-->
+        <!--<li><img src="./tmall/images/flush.png" height="100"/></li>-->
+        <!--</div>-->
+        <div class="hand"><img src="./tmall/images/hand.png" height="50"/></div>
+        <div class="lights hide"><img src="./tmall/images/round.png" height="120"/></div>
+        <div class="pig hide">
+            <i><img src="./tmall/images/pig.png"/></i>
+
+            <div class="pigbroken">
+                <li><img src="./tmall/images/pig/p0.png"/></li>
+                <li><img src="./tmall/images/pig/p1.png"/></li>
+            </div>
+        </div>
+        <div class="cloude hide">
+        </div>
+        <div class="golden hide">
+            <li><img src="./tmall/images/golden/0.png"/></li>
+            <li><img src="./tmall/images/golden/1.png"/></li>
+            <li><img src="./tmall/images/golden/2.png"/></li>
+            <li><img src="./tmall/images/golden/3.png"/></li>
+            <li><img src="./tmall/images/golden/4.png"/></li>
+            <li><img src="./tmall/images/golden/5.png"/></li>
+            <li><img src="./tmall/images/golden/6.png"/></li>
+            <li><img src="./tmall/images/golden/7.png"/></li>
+            <li><img src="./tmall/images/golden/8.png"/></li>
+            <li><img src="./tmall/images/golden/9.png"/></li>
+        </div>
+        <div class="sun hide">
+            <i><img src="./tmall/images/sun.png"/></i>
+            <i><img src="./tmall/images/l1.png"/></i>
+            <i><img src="./tmall/images/l2.png"/></i>
+        </div>
+        <div class="addscore hide">
+            +10
+        </div>
+    </section>
+    <!--第二个场景-->
+    <section class="two hide">
+        <div class="pigfly"><i>two</i></div>
+        <div class="circlefly"><i></i></div>
+    </section>
+    <!--第三个场景-->
+    <section class="three hide">
+        <div class="pigfly"></div>
+        <div class="circlefly"><i></i></div>
+    </section>
+    <!--第四个场景-->
+    <section class="four hide">
+        <div class="pigfly"></div>
+        <div class="circlefly"><i></i></div>
+    </section>
+    <!--第五个场景-->
+    <section class="five hide">
+        <div class="pigfly"></div>
+        <div class="circlefly"></div>
+    </section>
+    <div class="circle">
+        <div class="l0 hide"><img src="./tmall/images/l0.png" width="90"/></div>
+        <i></i>
+
+        <div class="l2 hide"><img src="./tmall/images/l2.png" width="90"/></div>
+    </div>
+    <section class="popbox hide">
+        <div class="bg"></div>
+        <div class="con">
+            <h2>已完成本关</h2>
+
+            <p>
+                <a class="replay">重新开始</a>
+            </p>
+        </div>
+    </section>
+</section>
+<audio id="bgmp3" preload="auto" loop="">
+    <!--<source src="./tmall/sound/bgsound.mp3">-->
+</audio>
+<script src="./tmall/libs/preloadjs-0.6.0.min.js"></script>
+<script src="./tmall/libs/TweenMax.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+</body>
+</html>

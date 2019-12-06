@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SealMeeting:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="sealmeeting.war">
+      <element id="artifact" artifact-name="SealMeeting:war exploded" />
+    </root>
+  </artifact>
+</component>

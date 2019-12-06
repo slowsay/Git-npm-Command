@@ -1,3 +1,28 @@
+==================linux配置gitlab服务器 ===================
+
+第一步安装或者配置一些必要环境：
+>sudo yum install curl openssh-server openssh-clients postfix cronie
+>sudo service postfix start
+>sudo chkconfig postfix on
+>sudo lokkit -s http -s ssh
+
+
+//下载gitlab包
+>curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+
+//安装gitlab
+>yum install gitlab-ce
+
+//配置并启动
+>gitlab-ctl reconfigure
+
+
+//修改配置 unicorn['port'] = 8080
+>/etc/gitlab/gitlab.rb
+
+//检测网页是否通
+>lynx 127.0.0.1:8080
+
 
 
 ================git出现提交不上去================

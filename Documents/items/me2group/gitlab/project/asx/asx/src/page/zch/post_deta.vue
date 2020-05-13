@@ -321,12 +321,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>$size: 0.8;
 .post_deta {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1280px;
+  width: 1280px*$size;
   margin: auto;
 }
 .nav_bottom {
@@ -336,11 +336,11 @@ export default {
   padding: 1% 2%;
   display: flex;
   align-items: center;
-  border: 1px solid rgba(245, 245, 245, 1);
+  border: 1px*$size solid rgba(245, 245, 245, 1);
   justify-content: space-between;
 }
 .nav_bottom .left .name {
-  font-size: 30px;
+  font-size: 30px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
@@ -351,7 +351,7 @@ export default {
   margin-top: 1%;
 }
 .nav_bottom .left .number h6 {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(179, 179, 179, 1);
@@ -360,17 +360,17 @@ export default {
   margin-left: 2%;
 }
 .nav_bottom .left .number p {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: red;
 }
 .nav_bottom button {
-  font-size: 17px;
+  font-size: 17px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   width: 5%;
   background: rgba(237, 112, 67, 1);
   border-radius: 4p;
@@ -384,15 +384,15 @@ export default {
   justify-content: space-between;
   align-items: center;
   background: rgba(250, 250, 250, 1);
-  border: 1px solid rgba(240, 240, 240, 1);
+  border: 1px*$size solid rgba(240, 240, 240, 1);
   padding: 1% 2%;
 }
 .limit .up_one p {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(27, 125, 219, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
 }
 /* 回复内容 */
 .res {
@@ -403,22 +403,22 @@ export default {
   width: 80%;
 }
 .res .left .btns {
-  border: 1px solid rgb(230, 230, 230);
+  border: 1px*$size solid rgb(230, 230, 230);
   padding: 1% 2%;
 }
 .res .left .btns button {
-  font-size: 16px;
+  font-size: 16px*$size;
   outline: 0;
   font-family: Microsoft YaHei;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
   background: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(230, 230, 230, 1);
-  border-radius: 4px;
+  border: 1px*$size solid rgba(230, 230, 230, 1);
+  border-radius: 4px*$size;
 }
 .res .cont {
   display: flex;
-  border: 1px solid rgb(230, 230, 230);
+  border: 1px*$size solid rgb(230, 230, 230);
 }
 .res .cont:not(:first-child) {
   border-top: 0;
@@ -434,7 +434,7 @@ export default {
   align-items: center;
 }
 .res .cont .poto .name {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
@@ -442,11 +442,11 @@ export default {
 }
 .res .cont .poto img.sp {
   width: 80%;
-  height: 100px;
+  height: 100px*$size;
   margin-top: 10%;
 }
 .res .cont .poto .name {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
@@ -455,26 +455,26 @@ export default {
   display: flex;
   align-items: center;
   background: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(230, 230, 230, 1);
-  border-radius: 4px;
+  border: 1px*$size solid rgba(230, 230, 230, 1);
+  border-radius: 4px*$size;
   padding: 1% 1%;
   margin-top: 5%;
   margin-bottom: 8%;
 }
 .res .cont .poto .grade .fully {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
 }
 .res .cont .poto .grade .num {
-  font-size: 14px;
+  font-size: 14px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
   background: url("../../assets/img/zch/details/mary.png") no-repeat;
-  width: 20px;
-  height: 32px;
+  width: 20px*$size;
+  height: 32px*$size;
   background-size: 100%;
   display: flex;
   justify-content: center;
@@ -485,7 +485,7 @@ export default {
   margin: 0 2%;
 }
 .res .cont .wz .title {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
@@ -493,32 +493,32 @@ export default {
 }
 .res .cont .wz .flat {
   width: 100%;
-  height: 447px;
+  height: 447px*$size;
   margin-top: 3%;
 }
 .res .cont .wz .bottom {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  height: 80px;
+  height: 80px*$size;
   padding-bottom: 3%;
 }
 .res .cont .wz .bottom .btn {
   display: flex;
   align-items: center;
-  border: 1px solid red;
-  border-radius: 4px;
+  border: 1px*$size solid red;
+  border-radius: 4px*$size;
   padding: 0.5% 1%;
   width: 8%;
   display: flex;
   justify-content: space-around;
 }
 .res .cont .wz .bottom .btn img {
-  width: 21px;
-  height: 18px;
+  width: 21px*$size;
+  height: 18px*$size;
 }
 .res .cont .wz .bottom .btn p {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: Microsoft YaHei;
   font-weight: 400;
   color: rgba(224, 18, 32, 1);
@@ -530,26 +530,26 @@ export default {
   justify-content: flex-end;
 }
 .res .cont .wz .bottom .right .waing {
-  width: 19px;
-  height: 18px;
+  width: 19px*$size;
+  height: 18px*$size;
   margin-right: 2%;
 }
 .res .cont .wz .bottom .right .report {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(27, 125, 219, 1);
   margin-right: 2%;
 }
 .res .cont .wz .bottom .right .time {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(102, 102, 102, 1);
   margin-right: 2%;
 }
 .res .cont .wz .bottom .right .hf {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(27, 125, 219, 1);
@@ -559,38 +559,38 @@ export default {
   width: 50%;
   display: flex;
   justify-content: space-around;
-  border: 1px solid rgba(230, 230, 230, 1);
-  border-radius: 4px;
+  border: 1px*$size solid rgba(230, 230, 230, 1);
+  border-radius: 4px*$size;
   padding: 1% 0%;
   margin-left: 1%;
 }
 .res .cont .wz .bottom .share img {
-  width: 60px;
-  height: 60px;
+  width: 60px*$size;
+  height: 60px*$size;
 }
 .res .res_ght {
   width: 20%;
-  border-radius: 4px;
+  border-radius: 4px*$size;
 }
 /* 我在锅吧 */
 .lefts {
   background: rgba(245, 245, 245, 1);
-  border: 1px solid rgba(230, 230, 230, 1);
-  border-radius: 4px;
+  border: 1px*$size solid rgba(230, 230, 230, 1);
+  border-radius: 4px*$size;
   padding: 4% 5% 0% 5%;
-  height: 222px;
+  height: 222px*$size;
 }
 .lefts .title {
-  font-size: 20px;
+  font-size: 20px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
 }
 .lefts .center {
   display: flex;
   margin-top: 5%;
-  border-bottom: 1px dotted rgba(230, 230, 230, 1);
+  border-bottom: 1px*$size dotted rgba(230, 230, 230, 1);
   padding-bottom: 5%;
 }
 .lefts .center img {
@@ -601,28 +601,28 @@ export default {
   margin-left: 5%;
 }
 .lefts .center .text .name {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(27, 125, 219, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
 }
 .lefts .center .text .dj {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   margin-top: 6%;
 }
 .lefts .center .text .btn {
-  font-size: 14px;
+  font-size: 14px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   background: red;
-  border-radius: 4px;
+  border-radius: 4px*$size;
   border: 0;
   outline: 0;
   margin-top: 20%;
@@ -632,56 +632,56 @@ export default {
   align-items: center;
   justify-content: center;
   margin-top: 5%;
-  border: 1px solid rgba(230, 230, 230, 1);
-  border-radius: 4px;
-  height: 35px;
-  font-size: 16px;
+  border: 1px*$size solid rgba(230, 230, 230, 1);
+  border-radius: 4px*$size;
+  height: 35px*$size;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
 }
 .gz img {
-  width: 8px;
-  height: 7px;
+  width: 8px*$size;
+  height: 7px*$size;
   margin-left: 3%;
 }
 /* 热搜 */
 .hotbot {
-  border: 1px solid rgb(230, 230, 230);
+  border: 1px*$size solid rgb(230, 230, 230);
   width: 100%;
 }
 .hotbot .sp_hot {
   width: 100%;
-  height: 130px;
+  height: 130px*$size;
 }
 .hotbot > div:not(:first-child) .text .title {
   color: rgba(27, 125, 219, 1);
 }
 .hotbot > div:not(:first-child) .hot_top {
-  border-top: 1px solid rgb(230, 230, 230);
+  border-top: 1px*$size solid rgb(230, 230, 230);
 }
 .hotbot > div .text:last-child {
   margin-bottom: 15%;
 }
 .hotbot .hot_top {
   width: 100%;
-  height: 50px;
+  height: 50px*$size;
   display: flex;
   align-items: center;
   background: rgba(250, 250, 250, 1);
-  border-bottom: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px*$size solid rgb(230, 230, 230);
 }
 .hotbot .hot_top img {
   width: 6%;
   margin-left: 3%;
 }
 .hotbot .hot_top p {
-  font-size: 20px;
+  font-size: 20px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   margin-left: 2%;
 }
 .hotbot .text {
@@ -690,29 +690,29 @@ export default {
   justify-content: space-around;
 }
 .hotbot .text .num {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(77, 77, 77, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
 }
 .hotbot .text .title {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(77, 77, 77, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   width: 70%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 .hotbot .text .math {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(77, 77, 77, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
 }
 /* 一键发布 */
 .issue {
@@ -726,12 +726,12 @@ export default {
   width: 80%;
 }
 .issue .backfff .poss {
-  font-size: 20px;
+  font-size: 20px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
-  line-height: 22px;
-  margin-left: 30px;
-  margin-top: 28px;
+  line-height: 22px*$size;
+  margin-left: 30px*$size;
+  margin-top: 28px*$size;
 }
 </style>

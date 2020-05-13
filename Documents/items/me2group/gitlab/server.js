@@ -5,7 +5,7 @@
 
 const webpack = require('webpack');
 const webdev = require('webpack-dev-server');
-const config = require('./webpack.dragoncor.config');
+const config = require('./webpack.offical.config');
 const server = new webdev(webpack(config), {
     publicPath: config.output.publicPath, noInfo: false, hot: true, historyApiFallback: true,
     stats: {colors: true}

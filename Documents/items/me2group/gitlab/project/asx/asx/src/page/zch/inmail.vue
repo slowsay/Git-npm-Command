@@ -214,12 +214,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>$size: 0.8;
 .inmail {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1280px;
+  width: 1280px*$size;
   margin: auto;
 }
 .content {
@@ -233,7 +233,7 @@ export default {
   align-items: center;
 }
 .content .tab p {
-  font-size: 20px;
+  font-size: 20px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
@@ -241,7 +241,7 @@ export default {
   cursor: pointer;
 }
 .content .tab p:not(:first-child) {
-  border-left: 1px solid rgba(230, 230, 230, 1);
+  border-left: 1px*$size solid rgba(230, 230, 230, 1);
   padding-left: 2%;
   padding-right: 2%;
 }
@@ -254,9 +254,9 @@ export default {
   align-items: center;
   justify-content: space-between;
   background: rgba(240, 240, 240, 1);
-  border-radius: 4px;
+  border-radius: 4px*$size;
   margin-top: 1%;
-  padding: 5px 0;
+  padding: 5px*$size 0;
 }
 .del .left {
   display: flex;
@@ -265,8 +265,8 @@ export default {
 }
 .del .left p {
   background: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 4px;
+  border: 1px*$size solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px*$size;
   padding: 1% 1%;
   cursor: pointer;
 }
@@ -291,11 +291,11 @@ export default {
   width: 15%;
 }
 .del .right p {
-  font-size: 14px;
+  font-size: 14px*$size;
   font-family: Microsoft YaHei;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 36px;
+  line-height: 36px*$size;
   cursor: pointer;
 }
 /* 全选 发件人 */
@@ -315,11 +315,11 @@ export default {
   align-items: center;
 }
 .addressor .left .all img {
-  width: 20px;
-  height: 20px;
+  width: 20px*$size;
+  height: 20px*$size;
 }
 .addressor .left p {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
@@ -330,19 +330,19 @@ export default {
   margin-right: 10%;
 }
 .addressor .right p {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
 }
 .addressor .right .el-icon-bottom {
-  width: 12px;
-  height: 13px;
+  width: 12px*$size;
+  height: 13px*$size;
 }
 /* 信箱 */
 .mailbox {
-  border: 4px solid rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
+  border: 4px*$size solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px*$size;
   padding: 1% 1%;
   margin-top: 1%;
 }
@@ -352,7 +352,7 @@ export default {
   align-items: center;
 }
 .mailbox .cont:not(:last-child) {
-  border-bottom: 2px dotted rgba(230, 230, 230, 1);
+  border-bottom: 2px*$size dotted rgba(230, 230, 230, 1);
   padding-bottom: 1%;
 }
 .mailbox .cont:not(:first-child) {
@@ -365,15 +365,15 @@ export default {
   width: 50%;
 }
 .mailbox .cont .left img {
-  width: 20px;
-  height: 20px;
+  width: 20px*$size;
+  height: 20px*$size;
 }
 .mailbox .cont .left p {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 24px;
+  line-height: 24px*$size;
 }
 .mailbox .cont .left .name {
   width: 25%;
@@ -387,11 +387,11 @@ export default {
   text-overflow: ellipsis;
 }
 .mailbox .cont .time {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 24px;
+  line-height: 24px*$size;
   margin-right: 4%;
 }
 </style>

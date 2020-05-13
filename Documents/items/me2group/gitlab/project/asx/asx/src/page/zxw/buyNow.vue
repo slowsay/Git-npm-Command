@@ -62,11 +62,11 @@
           <el-table-column prop="email" label="邮费" :formatter="email"></el-table-column>
           <el-table-column prop="coypon" label="优惠券" :formatter="coypon"></el-table-column>
           <el-table-column prop="sum" label="合计" :formatter="sum"></el-table-column>
-          <el-table-column prop="remark" label="备注"></el-table-column>
+          <el-table-column prop="sizerk" label="备注"></el-table-column>
         </el-table>
       </div>
       <div class="center">
-        <div class="allSum">合计（含运费）<span class="all"><span style="font-size:24px">￥</span>{{form.all}}</span></div>
+        <div class="allSum">合计（含运费）<span class="all"><span style="font-size:19px">￥</span>{{form.all}}</span></div>
         <div class="box" >
           <div class="fanhui"><img src="../../assets/img/zxw/fanhui.png" alt=""><span @click="$router.go(-1)">返回购物车</span></div>
           <button class="payContent" @click="$router.push('/pay')">确认付款</button>
@@ -123,7 +123,7 @@ export default {
           email: 20,
           coypon: 200,
           sum: 3000,
-          remark: "空间和付款计划哈快捷回复卡后即可"
+        sizerk: "空间和付款计划哈快捷回复卡后即可"
         },
         {
           title: "专柜洋风二代陶瓷锅煲汤炖煮砂锅耐高温健康煮饭粥锅陶锅",
@@ -137,7 +137,7 @@ export default {
           email: 20,
           coypon: 200,
           sum: 3000,
-          remark: "空间和付款计划哈快捷回复卡后即可"
+       sizerk: "空间和付款计划哈快捷回复卡后即可"
         }
       ]
     };
@@ -165,86 +165,86 @@ export default {
   
 };
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>$size: 0.8;
 .buyNow {
-  height: 70px;
+  height: 70px*$size;
   margin: 0 auto;
   .top {
 
-    width: 1280px;
-    margin: 40px auto;
+    width: 1280px*$size;
+    margin: 40px*$size auto;
   }
   .contain {
-    width: 1280px;
+    width: 1280px*$size;
     margin: 0 auto;
     box-sizing: border-box;
     .shopImg {
-      width: 100px;
-      height: 100px;
-      border-radius: 4px;
+      width: 100px*$size;
+      height: 100px*$size;
+      border-radius: 4px*$size;
     }
     .infoBox {
       float: right;
-      width: 250px;
-      height: 100px;
-      // border: 1px solid red;
+      width: 250px*$size;
+      height: 100px*$size;
+      // border: 1px*$size solid red;
       .title {
-        font-size: 16px;
+        font-size: 16px*$size;
         font-family: DFYuanW5-GB;
         font-weight: 400;
         color: rgba(51, 51, 51, 1);
-        line-height: 24px;
+        line-height: 24px*$size;
         overflow: hidden;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
       }
       .type {
-        font-size: 16px;
+        font-size: 16px*$size;
         font-family: DFYuanW5-GB;
         font-weight: 400;
         color: rgba(153, 153, 153, 1);
-        line-height: 24px;
-        margin-top: 30px;
+        line-height: 24px*$size;
+        margin-top: 30px*$size;
       }
     }
     //确认收获地址模块样式
     .payType {
-      font-size: 30px;
+      font-size: 30px*$size;
       font-family: DFYuanW5-GB;
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
-      line-height: 60px;
-      margin-top: 20px;
+      line-height: 60px*$size;
+      margin-top: 20px*$size;
       .titleBox {
         display: flex;
         justify-content: space-between;
-        border-bottom: 4px dotted #ccc;
-        margin-bottom: 20px;
+        border-bottom: 4px*$size dotted #ccc;
+        margin-bottom: 20px*$size;
         .change {
-          font-size: 18px;
+          font-size: 18px*$size;
           font-family: DFYuanW5-GB;
           font-weight: 400;
           color: rgba(27, 125, 219, 1);
-          margin-top: 5px;
+          margin-top: 5px*$size;
         }
       }
       .payBox {
-        width: 1280px;
+        width: 1280px*$size;
         box-sizing: border-box;
-        height: 84px;
-        padding: 10px 32px;
+        height: 84px*$size;
+        padding: 10px*$size 32px*$size;
         display: flex;
         align-items: center;
-        border: 1px solid #fff;
+        border: 1px*$size solid #fff;
         .payLeft{
-          width: 100px;
+          width: 100px*$size;
         }
         .payMiddle{
           margin-right:auto;
         }
         .sendTo {
-          // font-size:18px;
+          // font-size:18px*$size;
           // font-family:DFYuanW5-GB;
           // font-weight:400;
           // color:rgba(223,18,32,1);
@@ -252,19 +252,19 @@ export default {
         }
         .send {
           display: block;
-          font-size: 18px;
+          font-size: 18px*$size;
           font-family: DFYuanW5-GB;
           font-weight: 400;
           color: rgba(223, 18, 32, 1);
         }
         .address {
-          font-size: 18px;
+          font-size: 18px*$size;
           font-family: DFYuanW5-GB;
           font-weight: 400;
           color: rgba(51, 51, 51, 1);
         }
         .onAddress {
-          font-size: 20px;
+          font-size: 20px*$size;
           font-family: DFYuanW5-GB;
           font-weight: 400;
           color: rgba(51, 51, 51, 1);
@@ -273,7 +273,7 @@ export default {
       .payMoney {
         float: right;
         .money {
-          font-size: 30px;
+          font-size: 30px*$size;
           font-family: PingFang SC;
           font-weight: 400;
           color: rgba(224, 18, 32, 1);
@@ -283,18 +283,18 @@ export default {
   }
  
   .red {
-    border: 1px solid red !important;
+    border: 1px*$size solid red !important;
     background-color: #fff;
     background:rgba(252,231,232,1);
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 10px*$size;
   }
   .payMoney {
     display: none;
   }
   .showMoney {
     display: block;
-    font-size:18px;
+    font-size:18px*$size;
 font-family:DFYuanW5-GB;
 font-weight:400;
 color:rgba(27,125,219,1);
@@ -303,20 +303,20 @@ color:rgba(27,125,219,1);
   .btn{
     display: none;
     float: right;
-    margin-top:20px;
+    margin-top:20px*$size;
   }
   .showBtn{
       display: block;
-    width:87px;
-height:28px;
+    width:87px*$size;
+height:28px*$size;
 background:rgba(224,18,32,1);
-border-radius:4px;
+border-radius:4px*$size;
 border:none;
-font-size:14px;
+font-size:14px*$size;
 font-family:DFYuanW5-GB;
 font-weight:400;
 color:rgba(255,255,255,1);
-margin-left: 20px;
+margin-left: 20px*$size;
   }
 
   .center {
@@ -325,34 +325,34 @@ margin-left: 20px;
     flex-direction: column;
     align-items: flex-end;
     .allSum{
-      font-size:18px;
+      font-size:18px*$size;
 font-family:DFYuanW5-GB;
 font-weight:400;
 color:rgba(51,51,51,1);
-margin:20px;
+margin:20px*$size;
 .all{
-  font-size:36px;
+  font-size:36px*$size;
 font-family:PingFang SC;
 font-weight:400;
 color:rgba(224,18,32,1)
 }
     }
     .box{
-margin:20px;
+margin:20px*$size;
       .fanhui{
         float: left;
-        margin:20px 100px;
-        font-size:20px;
+        margin:20px*$size 100px*$size;
+        font-size:20px*$size;
         font-family:DFYuanW5-GB;
         font-weight:400;
         color:rgba(27,125,219,1);
       }
        .payContent {
-          width: 260px;
-          height: 70px;
+          width: 260px*$size;
+          height: 70px*$size;
           background: rgba(224, 18, 32, 1);
-          border-radius: 4px;
-          font-size: 24px;
+          border-radius: 4px*$size;
+          font-size: 24px*$size;
           font-family: DFYuanW5-GB;
           font-weight: 400;
           color: rgba(255, 255, 255, 1);
@@ -362,28 +362,28 @@ margin:20px;
     }
   }
   .useOther{
-    font-size:18px;
+    font-size:18px*$size;
 font-family:DFYuanW5-GB;
 font-weight:400;
 color:rgba(27,125,219,1);
-margin-left: 150px;
+margin-left: 150px*$size;
   }
   .orderInfo{
-    font-size:30px;
+    font-size:30px*$size;
 font-family:DFYuanW5-GB;
 font-weight:400;
 color:rgba(51,51,51,1);
-border-bottom: 4px dotted #ccc;
-  line-height: 60px;
+border-bottom: 4px*$size dotted #ccc;
+  line-height: 60px*$size;
   }
 }
 .form{
-  border:4px solid rgba(0, 0, 0, 0.08);
-border-radius:10px;
-margin-top:40px;
+  border:4px*$size solid rgba(0, 0, 0, 0.08);
+border-radius:10px*$size;
+margin-top:40px*$size;
 }
 .allSum{
-  font-size:18px;
+  font-size:18px*$size;
 font-family:DFYuanW5-GB;
 font-weight:400;
 color:rgba(51,51,51,1);

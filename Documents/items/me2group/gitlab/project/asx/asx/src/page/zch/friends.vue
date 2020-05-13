@@ -420,12 +420,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>$size: 0.8;
 .friends {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1280px;
+  width: 1280px*$size;
   margin: auto;
 }
 .content {
@@ -441,22 +441,22 @@ export default {
 .top .left {
   width: 20%;
   background: rgba(245, 245, 245, 1);
-  border: 1px solid rgba(230, 230, 230, 1);
-  border-radius: 4px;
+  border: 1px*$size solid rgba(230, 230, 230, 1);
+  border-radius: 4px*$size;
   padding: 2% 1% 1%;
-  height: 222px;
+  height: 222px*$size;
 }
 .top .left .title {
-  font-size: 20px;
+  font-size: 20px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
 }
 .top .left .center {
   display: flex;
   margin-top: 5%;
-  border-bottom: 1px dotted rgba(230, 230, 230, 1);
+  border-bottom: 1px*$size dotted rgba(230, 230, 230, 1);
   padding-bottom: 5%;
 }
 .top .left .center img {
@@ -467,28 +467,28 @@ export default {
   margin-left: 5%;
 }
 .top .left .center .text .name {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(27, 125, 219, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
 }
 .top .left .center .text .dj {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   margin-top: 6%;
 }
 .top .left .center .text .btn {
-  font-size: 14px;
+  font-size: 14px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   background: red;
-  border-radius: 4px;
+  border-radius: 4px*$size;
   border: 0;
   outline: 0;
   margin-top: 20%;
@@ -498,19 +498,19 @@ export default {
   align-items: center;
   justify-content: center;
   margin-top: 5%;
-  border: 1px solid rgba(230, 230, 230, 1);
-  border-radius: 4px;
-  height: 35px;
-  font-size: 16px;
+  border: 1px*$size solid rgba(230, 230, 230, 1);
+  border-radius: 4px*$size;
+  height: 35px*$size;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   background: #fff;
 }
 .top .gz img {
-  width: 8px;
-  height: 7px;
+  width: 8px*$size;
+  height: 7px*$size;
   margin-left: 3%;
 }
 /* 锅吧里有奇葩 */
@@ -518,13 +518,13 @@ export default {
   width: 74%;
 }
 .all_right .right {
-  border: 1px solid rgba(230, 230, 230, 1);
-  border-radius: 4px;
-  height: 200px;
+  border: 1px*$size solid rgba(230, 230, 230, 1);
+  border-radius: 4px*$size;
+  height: 200px*$size;
   padding: 1% 1% 0%;
 }
 .all_right .right .qp {
-  font-size: 20px;
+  font-size: 20px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
@@ -537,8 +537,8 @@ export default {
   align-items: center;
 }
 .all_right .right .play {
-  width: 28px;
-  height: 28px;
+  width: 28px*$size;
+  height: 28px*$size;
 }
 .refe {
   width: 38%;
@@ -553,11 +553,11 @@ export default {
   margin-left: 3%;
 }
 .all_right .right .bottom .ss .wz .title {
-  font-size: 14px;
+  font-size: 14px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   background: url("../../assets/img/zch/shop/35.png") no-repeat;
   background-size: 100%;
   width: 30%;
@@ -567,39 +567,39 @@ export default {
   align-items: center;
 }
 .all_right .right .bottom .ss .wz .name {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   margin-top: 3%;
 }
 .all_right .right .bottom .ss .wz .number {
   display: flex;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(179, 179, 179, 1);
   margin-top: 7%;
 }
 .all_right .right .bottom .ss .wz .number p:first-child img {
-  width: 18px;
-  height: 13px;
+  width: 18px*$size;
+  height: 13px*$size;
 }
 .all_right .right .bottom .ss .wz .number p:last-child img {
-  width: 16px;
-  height: 16px;
+  width: 16px*$size;
+  height: 16px*$size;
 }
 .all_right .right_down {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* height: 52px; */
-  margin-top: 27px;
+  /* height: 52px*$size; */
+  margin-top: 27px*$size;
 }
 .all_right .right_down p {
-  font-size: 20px;
+  font-size: 20px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
@@ -612,16 +612,16 @@ export default {
   width: 23%;
 }
 .all_right .right_down .seape img {
-  width: 16px;
-  height: 17px;
+  width: 16px*$size;
+  height: 17px*$size;
   position: absolute;
   left: 6%;
 }
 .all_right .right_down .seape input {
-  height: 28px;
+  height: 28px*$size;
   width: 100%;
-  border: 1px solid rgba(204, 204, 204, 1);
-  border-radius: 14px;
+  border: 1px*$size solid rgba(204, 204, 204, 1);
+  border-radius: 14px*$size;
   outline: 0;
   padding-left: 15%;
 }
@@ -637,24 +637,24 @@ export default {
 .finds_show .cricle {
   height: 100%;
   width: 100%;
-  border: 1px solid rgba(230, 230, 230, 1);
-  border-radius: 0px 4px 0px 0px;
+  border: 1px*$size solid rgba(230, 230, 230, 1);
+  border-radius: 0px*$size 4px*$size 0px*$size 0px*$size;
 }
 .finds_show .cricle .wz {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 50px;
+  height: 50px*$size;
   background: rgba(250, 250, 250, 1);
-  border-bottom: 1px solid rgba(230, 230, 230, 1);
+  border-bottom: 1px*$size solid rgba(230, 230, 230, 1);
 }
 .finds_show .cricle .wz .name {
-  font-size: 20px;
+  font-size: 20px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   margin-left: 5%;
 }
 .finds_show .cricle .wz img {
@@ -679,38 +679,38 @@ export default {
   justify-content: space-between;
 }
 .follower .right .name {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
 }
 .follower .right .grade {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
 }
 .follower .right .btn button {
-  font-size: 12px;
+  font-size: 12px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   border: 0;
   outline: 0;
 }
 .follower .right .btn button:first-child {
   background: rgba(224, 18, 32, 1);
-  border-radius: 4px;
+  border-radius: 4px*$size;
 }
 .follower .right .btn button:last-child {
   background: rgba(51, 51, 51, 1);
-  border-radius: 4px;
+  border-radius: 4px*$size;
 }
 .cricle >>> .el-pagination {
-  border-top: 1px solid rgb(230, 230, 230);
+  border-top: 1px*$size solid rgb(230, 230, 230);
 }
 .cricle >>> .el-pagination .btn-prev,
 .cricle >>> .el-pagination .btn-next {
@@ -719,9 +719,9 @@ export default {
 /* 已发布帖子 */
 .post {
   width: 50%;
-  border: 1px solid rgba(230, 230, 230, 1);
+  border: 1px*$size solid rgba(230, 230, 230, 1);
   margin-left: 4%;
-  border-radius: 4px;
+  border-radius: 4px*$size;
   padding: 2% 1% 1%;
   height: 100%;
 }
@@ -734,10 +734,10 @@ export default {
 .post .cont .up {
   display: flex;
   align-items: center;
-  height: 35px;
+  height: 35px*$size;
 }
 .post .cont .up .title {
-  font-size: 20px;
+  font-size: 20px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
@@ -755,11 +755,11 @@ export default {
   margin-left: 3%;
 }
 .post .cont .details {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(77, 77, 77, 1);
-  line-height: 24px;
+  line-height: 24px*$size;
   margin-top: 2%;
 }
 .post .cont .images img {
@@ -773,7 +773,7 @@ export default {
   padding-bottom: 2%;
 }
 .post .cont:not(:last-child) .down {
-  border-bottom: 2px dotted rgb(230, 230, 230);
+  border-bottom: 2px*$size dotted rgb(230, 230, 230);
 }
 .post .cont .down img {
   width: 3%;
@@ -782,11 +782,11 @@ export default {
   margin-left: 1%;
 }
 .post .cont .down p {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(102, 102, 102, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   margin-left: 1%;
 }
 .post .limt {
@@ -797,40 +797,40 @@ export default {
 }
 /* 热搜 */
 .hotbot {
-  border: 1px solid rgb(230, 230, 230);
+  border: 1px*$size solid rgb(230, 230, 230);
   width: 22%;
 }
 .hotbot .sp_hot {
   width: 100%;
-  height: 130px;
+  height: 130px*$size;
 }
 .hotbot > div:not(:first-child) .text .title {
   color: rgba(27, 125, 219, 1);
 }
 .hotbot > div:not(:first-child) .hot_top {
-  border-top: 1px solid rgb(230, 230, 230);
+  border-top: 1px*$size solid rgb(230, 230, 230);
 }
 .hotbot > div .text:last-child {
   margin-bottom: 15%;
 }
 .hotbot .hot_top {
   width: 100%;
-  height: 50px;
+  height: 50px*$size;
   display: flex;
   align-items: center;
   background: rgba(250, 250, 250, 1);
-  border-bottom: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px*$size solid rgb(230, 230, 230);
 }
 .hotbot .hot_top img {
   width: 6%;
   margin-left: 3%;
 }
 .hotbot .hot_top p {
-  font-size: 20px;
+  font-size: 20px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   margin-left: 2%;
 }
 .hotbot .text {
@@ -839,29 +839,29 @@ export default {
   justify-content: space-around;
 }
 .hotbot .text .num {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(77, 77, 77, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
 }
 .hotbot .text .title {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(77, 77, 77, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
   width: 70%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 .hotbot .text .math {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(77, 77, 77, 1);
-  line-height: 22px;
+  line-height: 22px*$size;
 }
 /* 一键发布 */
 .issue {
@@ -875,12 +875,12 @@ export default {
   width: 80%;
 }
 .issue .backfff .poss {
-  font-size: 20px;
+  font-size: 20px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
-  line-height: 22px;
-  margin-left: 30px;
-  margin-top: 28px;
+  line-height: 22px*$size;
+  margin-left: 30px*$size;
+  margin-top: 28px*$size;
 }
 </style>

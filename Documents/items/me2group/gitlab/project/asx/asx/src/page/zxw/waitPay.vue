@@ -17,7 +17,7 @@
       </div>
       <!-- //商品信息模块 -->
       <!-- 表格模块 -->
-      <div class="form" style="margin-top:40px;">
+      <div class="form" style="margin-top:32px;">
         <el-table :data="tableData" style="width: 100%;">
           <el-table-column prop="info" label="商品信息" width="400">
             <template slot-scope="scope">
@@ -33,7 +33,7 @@
           <el-table-column prop="email" label="邮费" :formatter="email"></el-table-column>
           <el-table-column prop="coypon" label="优惠券" :formatter="coypon"></el-table-column>
           <el-table-column prop="sum" label="合计" :formatter="sum"></el-table-column>
-          <el-table-column prop="remark" label="备注"></el-table-column>
+          <el-table-column prop="sizerk" label="备注"></el-table-column>
         </el-table>
         <div class="btnBox">
           <button class="btn1" @click="$router.push('shopDetail')">取消订单</button>
@@ -50,7 +50,7 @@
         <div class="shopContain">
           <div v-for="(item,index) in shopData" :key="index" class="shopBox" @click="$router.push('shopDetail')">
             <img :src="item.img" alt />
-            <div style="padding:14px">
+            <div style="padding:12px">
               <p class="moneyBox">
                 <span>￥{{item.money}}</span>
                 <span>￥{{item.moneyDel}}</span>
@@ -128,7 +128,7 @@ export default {
           email: 20,
           coypon: 200,
           sum: 3000,
-          remark: "空间和付款计划哈快捷回复卡后即可"
+          sizerk: "空间和付款计划哈快捷回复卡后即可"
         },
         {
           title: "专柜洋风二代陶瓷锅煲汤炖煮砂锅耐高温健康煮饭粥锅陶锅",
@@ -142,7 +142,7 @@ export default {
           email: 20,
           coypon: 200,
           sum: 3000,
-          remark: "空间和付款计划哈快捷回复卡后即可"
+          sizerk: "空间和付款计划哈快捷回复卡后即可"
         }
       ]
     };
@@ -163,146 +163,146 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>$size: 0.8;
 .waitPay {
 
   margin: 0 auto;
   .top {
-    width: 1280px;
-    margin: 40px auto;
+    width: 1280px*$size;
+    margin: 40px*$size auto;
   }
   .contain {
-    width: 1280px;
-    margin: 20px auto;
+    width: 1280px*$size;
+    margin: 20px*$size auto;
     .wait {
-      width: 1280px;
-      height: 286px;
-      padding: 29px 28px;
-      border: 4px solid rgba(0, 0, 0, 0.08);
-      border-radius: 10px;
+      width: 1280px*$size;
+      height: 286px*$size;
+      padding: 29px*$size 28px*$size;
+      border: 4px*$size solid rgba(0, 0, 0, 0.08);
+      border-radius: 10px*$size;
       box-sizing: border-box;
     }
     .title {
-      font-size: 24px;
+      font-size: 24px*$size;
       font-family: DFYuanW5-GB;
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
     }
     .info {
-      width: 1220px;
-      height: 75px;
+      width: 1220px*$size;
+      height: 75px*$size;
       background: rgba(245, 245, 245, 1);
-      border-radius: 4px;
-      font-size: 16px;
+      border-radius: 4px*$size;
+      font-size: 16px*$size;
       font-family: DFYuanW5-GB;
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
-      line-height: 75px;
-      padding: 0px 40px;
+      line-height: 75px*$size;
+      padding: 0px*$size 40px*$size;
       box-sizing: border-box;
-      margin-top: 20px;
+      margin-top: 20px*$size;
     }
     .item {
-      font-size: 16px;
+      font-size: 16px*$size;
       font-family: DFYuanW5-GB;
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
-      margin-right: 20px;
+      margin-right: 20px*$size;
     }
   }
   .form {
-    border: 4px solid rgba(0, 0, 0, 0.08);
-    border-radius: 10px;
+    border: 4px*$size solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px*$size;
     box-sizing: border-box;
     .btnBox {
-      margin: 20px 0 20px 1060px;
+      margin: 20px*$size 0 20px*$size 1060px*$size;
     }
   }
   .shopImg {
-    width: 100px;
-    height: 100px;
-    border-radius: 4px;
+    width: 100px*$size;
+    height: 100px*$size;
+    border-radius: 4px*$size;
   }
   .infoBox {
     float: right;
-    width: 250px;
-    height: 100px;
-    // border: 1px solid red;
+    width: 250px*$size;
+    height: 100px*$size;
+    // border: 1px*$size solid red;
     .title {
-      font-size: 16px;
+      font-size: 16px*$size;
       font-family: DFYuanW5-GB;
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
-      line-height: 24px;
+      line-height: 24px*$size;
       overflow: hidden;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
     }
     .type {
-      font-size: 16px;
+      font-size: 16px*$size;
       font-family: DFYuanW5-GB;
       font-weight: 400;
       color: rgba(153, 153, 153, 1);
-      line-height: 24px;
-      margin-top: 30px;
+      line-height: 24px*$size;
+      margin-top: 30px*$size;
     }
   }
   .btn1 {
-    width: 90px;
-    height: 36px;
+    width: 90px*$size;
+    height: 36px*$size;
     background: #fff;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 4px*$size;
+    font-size: 16px*$size;
     font-family: DFYuanW5-GB;
     font-weight: 400;
     color: rgba(27, 125, 219, 1);
-    line-height: 22px;
+    line-height: 22px*$size;
     border: none;
-    margin-right: 20px;
+    margin-right: 20px*$size;
   }
   .btn2 {
-    width: 90px;
-    height: 36px;
+    width: 90px*$size;
+    height: 36px*$size;
     background: rgba(224, 18, 32, 1);
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 4px*$size;
+    font-size: 16px*$size;
     font-family: DFYuanW5-GB;
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
-    line-height: 22px;
+    line-height: 22px*$size;
     border: none;
   }
   .shop {
     .shopTop {
       display: flex;
       justify-content: space-between;
-      margin: 20px 0;
-      border-bottom: 4px dotted #666666;
+      margin: 20px*$size 0;
+      border-bottom: 4px*$size dotted #666666;
     }
     .shopContain {
       display: flex;
 
       .shopBox {
-        width: 306px;
-        height: 427px;
-        border: 4px solid rgba(0, 0, 0, 0.08);
-        border-radius: 6px;
+        width: 306px*$size;
+        height: 427px*$size;
+        border: 4px*$size solid rgba(0, 0, 0, 0.08);
+        border-radius: 6px*$size;
         box-sizing: border-box;
-        margin-right: 15px;
+        margin-right: 15px*$size;
         img {
-          width: 298px;
-          height: 298px;
+          width: 298px*$size;
+          height: 298px*$size;
         }
         .moneyBox {
           > span:nth-child(1) {
-            font-size: 22px;
+            font-size: 22px*$size;
             font-family: PingFang SC;
             font-weight: 400;
             color: rgba(224, 18, 32, 1);
           }
           > span:nth-child(2) {
-            font-size: 16px;
+            font-size: 16px*$size;
             font-family: PingFang SC;
             font-weight: 400;
             text-decoration: line-through;
@@ -313,15 +313,15 @@ export default {
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
-          font-size: 16px;
+          font-size: 16px*$size;
           font-family: DFYuanW5-GB;
           font-weight: 400;
           color: rgba(51, 51, 51, 1);
-          margin: 10px 0;
+          margin: 10px*$size 0;
         }
         .boxBottom {
           display: flex;
-          font-size: 16px;
+          font-size: 16px*$size;
           font-family: DFYuanW5-GB;
           font-weight: 400;
           color: rgba(102, 102, 102, 1);

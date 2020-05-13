@@ -239,7 +239,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>$size: 0.8;
 .fication {
   display: flex;
   flex-direction: column;
@@ -251,15 +251,15 @@ export default {
 }
 /* 菜单 */
 .menu >>> .el-dropdown {
-  border: 1px solid rgba(240, 240, 240, 1);
-  border-radius: 10px;
+  border: 1px*$size solid rgba(240, 240, 240, 1);
+  border-radius: 10px*$size;
   padding: 1% 1%;
 }
 .menu >>> .el-dropdown:not(:first-child) {
   margin-left: 1%;
 }
 .menu >>> .el-dropdown-link {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(179, 179, 179, 1);
@@ -267,7 +267,7 @@ export default {
 /*  面包屑 */
 .crumbs {
   margin-top: 1%;
-  border-bottom: 2px dotted rgba(102, 102, 102, 1);
+  border-bottom: 2px*$size dotted rgba(102, 102, 102, 1);
   padding-bottom: 1%;
   margin-bottom: 1%;
 }
@@ -286,8 +286,8 @@ export default {
   margin-top: 3%;
 }
 .shop {
-  border: 4px solid rgba(0, 0, 0, 0.08);
-  border-radius: 6px;
+  border: 4px*$size solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px*$size;
   width: 22%;
 }
 .shop .image img {
@@ -301,13 +301,13 @@ export default {
   padding: 0 3%;
 }
 .shop .price p {
-  font-size: 22px;
+  font-size: 22px*$size;
   font-family: PingFang SC;
   font-weight: 400;
   color: rgba(224, 18, 32, 1);
 }
 .shop .price s {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: PingFang SC;
   font-weight: 400;
   text-decoration: line-through;
@@ -317,7 +317,7 @@ export default {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
@@ -328,7 +328,7 @@ export default {
 .shop .num {
   display: flex;
   justify-content: space-between;
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(102, 102, 102, 1);

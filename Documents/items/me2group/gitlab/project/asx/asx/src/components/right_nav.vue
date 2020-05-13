@@ -190,73 +190,75 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>$size: 1;
 .car {
   position: fixed;
-  right: 5px;
-  bottom: 100px;
+  right: 5px*$size;
+  bottom: 100px*$size;
+  z-index:9999;
 }
 .car_img {
   background: url("../assets/img/zch/start/86.png") no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 44px;
+  width: 44px*$size;
   align-items: center;
-  height: 130px;
+  height: 130px*$size;
 }
 .car_img img {
-  width: 22px;
-  height: 20px;
+  width: 22px*$size;
+  height: 20px*$size;
 }
 .car_img .text {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
 }
 .stick {
   background: url("../assets/img/zch/start/868.png");
-  width: 44px;
-  height: 46px;
+  width: 44px*$size;
+  height: 46px*$size;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 10px*$size;
 }
 .stick img {
-  width: 18px;
-  height: 23px;
+  width: 18px*$size;
+  height: 23px*$size;
 }
 .stick:last-child img {
-  width: 22px;
-  height: 22px;
+  width: 22px*$size;
+  height: 22px*$size;
 }
 .pop_car {
   position: fixed;
   right: 0;
   top: 0;
   bottom: 0;
-  width: 317px;
+  z-index: 9999;
+  width: 317px*$size;
   display: flex;
 }
 .pop_car .image {
   background: rgba(26, 26, 26, 1);
-  box-shadow: -1px 0px 0px 0px rgba(245, 245, 245, 0.3);
+  box-shadow: -1px*$size 0px*$size 0px*$size 0px*$size rgba(245, 245, 245, 0.3);
   display: flex;
   align-items: center;
 }
 .pop_car .image .car_text img {
-  width: 22px;
-  height: 20px;
+  width: 22px*$size;
+  height: 20px*$size;
 }
 .pop_car .image .car_text {
   background: rgba(224, 18, 32, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px 14px;
-  font-size: 16px;
+  padding: 24px*$size 14px*$size;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
@@ -270,10 +272,10 @@ export default {
   background: rgba(240, 240, 240, 1);
   justify-content: space-between;
   align-items: center;
-  padding: 11px 19px 11px 7px;
+  padding: 11px*$size 19px*$size 11px*$size 7px*$size;
 }
 .pop_car .content .content_top p {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(102, 102, 102, 1);
@@ -283,8 +285,8 @@ export default {
   align-items: center;
 }
 .pop_car .content .content_top .left img {
-  width: 20px;
-  height: 20px;
+  width: 20px*$size;
+  height: 20px*$size;
 }
 .shop {
   display: flex;
@@ -295,12 +297,12 @@ export default {
   align-items: center;
 }
 .shop .left_img .trigger {
-  width: 20px;
-  height: 20px;
+  width: 20px*$size;
+  height: 20px*$size;
 }
 .shop .left_img .trade {
-  width: 60px;
-  height: 60px;
+  width: 60px*$size;
+  height: 60px*$size;
   margin-left: 10%;
 }
 .shop .right {
@@ -313,14 +315,14 @@ export default {
   width: 80%;
 }
 .shop .right_top p {
-  font-size: 14px;
+  font-size: 14px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(153, 153, 153, 1);
 }
 .shop .right_top img {
-  width: 18px;
-  height: 18px;
+  width: 18px*$size;
+  height: 18px*$size;
 }
 .right_buttom {
   display: flex;
@@ -334,22 +336,23 @@ export default {
   width: 42%;
 }
 .right_buttom >>> .el-input-number--small .el-input__inner {
-  padding-left: 22px;
-  padding-right: 22px;
+  padding-left: 22px*$size;
+  padding-right: 22px*$size;
   width: 76%;
 }
 .right_buttom >>> .el-input-number__decrease {
-  width: 23px;
+  width: 23px*$size;
 }
 .right_buttom >>> .el-input-number__increase {
-  width: 23px;
-  right: 24px;
+  width: 23px*$size;
+  right: 24px*$size;
 }
 .total {
   position: fixed;
+  z-index:9999;
   bottom: 0;
-  width: 25%;
-  height: 100px;
+  width: 270px;
+  height: 100px*$size;
   background: rgba(240, 240, 240, 1);
   display: flex;
   flex-direction: column;
@@ -361,18 +364,18 @@ export default {
   align-items: center;
 }
 .total_top p {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
-  margin-left: 19px;
+  margin-left: 19px*$size;
 }
 .total_top h4 {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: PingFang SC;
   font-weight: 400;
   color: rgba(224, 18, 32, 1);
-  margin-right: 25px;
+  margin-right: 25px*$size;
 }
 .total .but {
   display: flex;
@@ -380,15 +383,15 @@ export default {
   justify-content: center;
 }
 .total .but .btn {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
   background: rgba(224, 18, 32, 1);
-  border-radius: 6px;
+  border-radius: 6px*$size;
   outline: 0;
   border: 0;
-  width: 90%;
-  height: 44px;
+  width: 250px;
+  height: 44px*$size;
 }
 </style>

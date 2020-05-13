@@ -1,12 +1,12 @@
 <template>
   <div class="star">
     <navbar></navbar>
-    <div class="content">
+    <div class="content" :class="{left:show}">
       <!-- 左侧导航 -->
-      <div class="left_nav" v-show="show">
+      <div class="left_nav" >
         <h4 class="name">全能平底锅</h4>
         <h4 class="name">介绍栏</h4>
-        <ul style="margin-top:10px;">
+        <ul style="margin-top:8px;">
           <li
             class="trol"
             @click="netbeans(item)"
@@ -19,10 +19,11 @@
           </li>
         </ul>
       </div>
+      <div></div>
       <!-- 右侧商品 -->
-      <div class="right">
+      <div class="right" :class="{right_0:show}">
         <div class="top">
-          <img src="../../assets/img/zch/start/block.png" alt @click="menu_nav" />
+          <img src="../../assets/img/zch/start/block.png" alt @click="show=!show" />
           <img src="../../assets/img/zch/start/left.png" alt />
           <img src="../../assets/img/zch/start/right.png" alt />
         </div>
@@ -47,7 +48,7 @@ export default {
   data() {
     return {
       // 左侧导航栏显示隐藏
-      show: true,
+      show: false,
       // 左侧导航栏
       left_nav: [
         {
@@ -84,55 +85,50 @@ export default {
         this.left_nav[i].show = false;
       }
       a.show = true;
-    },
-    // 左侧导航栏显示隐藏
-    menu_nav() {
-      let right = document.querySelector(".right");
-      if (this.show == true) {
-        this.show = false;
-        right.style.width = "100%";
-      } else {
-        this.show = true;
-        right.style.width = "75%";
-      }
     }
+    // 左侧导航栏显示隐藏
   }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+$size: 0.8;
 .star {
+  overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 1280px;
+  width: 1280px * $size;
   margin: auto;
 }
 .content {
   display: flex;
   width: 100%;
-  justify-content: center;
-  margin-top: 40px;
+  justify-content: space-between;
+  margin-top: 40px * $size;
+  transition: all 0.5s;
 }
 .content .left_nav {
-  width: 25%;
+  flex-shrink: 0;
+  margin-right: 45px;
+  width: 192px;
   background: url("../../assets/img/zch/start/3x.png") no-repeat;
   background-size: 100%;
 }
 .content .left_nav .name {
-  font-size: 30px;
-  padding-left: 19px;
+  font-size: 30px * $size;
+  padding-left: 19px * $size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
-  line-height: 36px;
+  line-height: 36px * $size;
   text-align: left;
-  margin-left: 3px;
+  margin-left: 3px * $size;
 }
 .content .left_nav .name:first-child {
-  padding-top: 19px;
+  padding-top: 19px * $size;
 }
 .back_red {
   background: url("../../assets/img/zch/start/red.png");
@@ -143,42 +139,43 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 60px;
+  height: 60px * $size;
 }
 .trol p {
-  font-size: 18px;
+  font-size: 18px * $size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
-  line-height: 36px;
+  line-height: 36px * $size;
   margin-left: 7%;
 }
 .trol img {
-  width: 8px;
-  height: 10px;
+  width: 8px * $size;
+  height: 10px * $size;
   margin-right: 7%;
 }
 .content .right {
-  width: 73%;
-  margin-left: 2%;
+  flex-shrink: 0;
+  width: 785px;
+  transition: all 0.5s
 }
 .right .top img {
-  width: 28px;
-  height: 28px;
-  margin-right: 20px;
+  width: 28px * $size;
+  height: 28px * $size;
+  margin-right: 20px * $size;
 }
 .right .title {
-  font-size: 30px;
+  font-size: 30px * $size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 36px;
-  margin-top: 38px;
-  padding-bottom: 20px;
-  border-bottom: 5px dotted rgba(102, 102, 102, 1);
+  line-height: 36px * $size;
+  margin-top: 38px * $size;
+  padding-bottom: 20px * $size;
+  border-bottom: 5px * $size dotted rgba(102, 102, 102, 1);
 }
 .shop {
-  margin-top: 40px;
+  margin-top: 40px * $size;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,8 +184,15 @@ export default {
   width: 100%;
 }
 .shop .play {
-  width: 48px;
-  height: 49px;
+  width: 48px * $size;
+  height: 49px * $size;
   position: absolute;
+}
+
+.left {
+  transform: translateX(-237px);
+}
+.right_0 {
+  width: 1024px !important;
 }
 </style>

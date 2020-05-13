@@ -21,7 +21,7 @@
         <van-field v-model="code" maxlength="6" placeholder="请输入验证码" :border="false"/>
         <p @click="verification" :class="{active:time!=61}">{{test}}</p>
       </div>
-      <van-button @click="login">登录</van-button>
+      <van-button @click="register">登录</van-button>
       <p @click="check=!check">
         <img src="../../assets/image/gw/login/3.png" v-if="check==false"/>
         <img src="../../assets/image/gw/login/4.png" v-else/>
@@ -62,37 +62,41 @@
     },
     //初始化数据
     created: function () {
-      if (localStorage.getItem("asxUserInfo")) {
-        this.$router.push({path: '/'});
-      }
-      else {
-        this.init();
-      }
+      this.init();
     },
     methods: {
       init: function () {
-        var _this = this;
-        this.code = this.$route.query.code;
-        var ua = navigator.userAgent;
-        this.regId = ua;
-        if (this.code) {
-          //微信code
-          var params = {
-            registerType: 1,
-            regId: this.regId,
-            phone: '',
-            message: '',
-            code: this.code
-          }
+        this.userinfo = {token: "asxtoken", id: '1'};
+        this.headerobj = {token: this.userinfo.token, userId: this.userinfo.userId};
+      },
+      register: function () {
+        var _number = this.number, _code = this.code, _ruleflag = this.check, _this = this;
+        if (_number.length < 11 || _number.length > 11) {
+          API.dialog({message: API.msg.ERROR_PHONE});
+        }
+        else if (!publicFn.isPoneAvailable(_number)) {
+          API.dialog({message: API.msg.ERROR_PHONECHECK});
+        }
+        else if (_code.length < 6 || _code.length > 6) {
+          API.dialog({message: API.msg.ERROR_VERIFYCODE});
+        }
+        else if (_ruleflag == false) {
+          API.dialog({message: API.msg.ERROR_RULE});
+        }
+        else {
           API.request({
-            url: API.getAuthorizeInfoLogin,
+            url: API.register,
             method: "post",
-            headers: {token: this.token, userId: id},
-            data: API.qs.stringify(params)
+            headers: this.headerobj,
+            data: API.qs.stringify({
+              phone: _number,
+              message: _code,
+            })
           }).then(function (e) {
             if (e.data.code == 200) {
               if (e.data.success) {
-                API.dialog({message: JSON.stringify(e.data.msg)});
+                localStorage.setItem("asxUserInfo", JSON.stringify({token: "asxtoken", id: e.data.data}));
+                _this.$router.go(-1);
               }
               else {
                 API.dialog({message: JSON.stringify(e.data.msg)});
@@ -101,7 +105,6 @@
             else {
               API.dialog({message: JSON.stringify(e.data.msg)});
             }
-
           }).catch(function (e) {
             API.dialog({message: JSON.stringify(e)});
           })

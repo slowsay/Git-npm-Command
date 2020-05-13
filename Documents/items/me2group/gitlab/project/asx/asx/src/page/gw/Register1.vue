@@ -24,7 +24,7 @@
     </el-form-item>
     <el-form-item>
       <el-checkbox v-model="Form.checked">已阅读并同意用户协议</el-checkbox>
-      <p>
+      <p @click="$router.push('/')">
         已有账号，前往登录
         <i class="el-icon-arrow-right"></i>
       </p>
@@ -122,33 +122,33 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>$size: 0.8;
 .el-form {
   .el-input {
-    /deep/input {
-      height: 56px;
+    >>>input {
+      height: 56px*$size;
       background: rgba(250, 250, 250, 1);
-      border: 1px solid rgba(230, 230, 230, 1);
-      border-radius: 28px;
-      font-size: 16px;
+      border: 1px*$size solid rgba(230, 230, 230, 1);
+      border-radius: 28px*$size;
+      font-size: 16px*$size;
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
-      padding-left: 70px;
+      padding-left: 70px*$size;
     }
-    /deep/.el-input__prefix {
-      width: 70px;
-      line-height: 52px;
+    >>>.el-input__prefix {
+      width: 70px*$size;
+      line-height: 52px*$size;
       img {
-        width: 20px;
+        width: 20px*$size;
         vertical-align: middle;
       }
     }
   }
   .el-form-item {
-    margin-bottom: 40px;
-    /deep/.el-form-item__error {
-      margin-left: 70px;
-      font-size: 16px;
+    margin-bottom: 40px*$size;
+    >>>.el-form-item__error {
+      margin-left: 70px*$size;
+      font-size: 16px*$size;
       font-weight: 400;
       color: rgba(224, 18, 32, 1);
     }
@@ -157,42 +157,42 @@ export default {
     margin-bottom: 0;
   }
   .el-form-item:nth-of-type(2) {
-    /deep/.el-form-item__content {
+    >>>.el-form-item__content {
       .el-input {
-        width: 310px;
+        width: 310px*$size;
       }
       .el-button {
         float: right;
-        width: 130px;
-        height: 56px;
+        width: 130px*$size;
+        height: 56px*$size;
         background: rgba(224, 18, 32, 1);
-        border-radius: 28px;
+        border-radius: 28px*$size;
         border: none;
-        font-size: 18px;
+        font-size: 18px*$size;
         font-weight: 400;
         color: rgba(255, 255, 255, 1);
         padding: 0;
         text-align: center;
-        line-height: 56px;
+        line-height: 56px*$size;
       }
     }
   }
   .el-form-item:nth-of-type(5) {
-    /deep/.el-form-item__content {
-      line-height: 16px;
+    >>>.el-form-item__content {
+      line-height: 19px;
     }
 
-    /deep/.el-checkbox__input {
+    >>>.el-checkbox__input {
       vertical-align: baseline;
     }
-    /deep/.el-checkbox__label {
-      font-size: 16px;
+    >>>.el-checkbox__label {
+      font-size: 16px*$size;
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
     }
     p {
       float: right;
-      font-size: 16px;
+      font-size: 16px*$size;
       font-family: DFYuanW5-GB;
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
@@ -200,12 +200,12 @@ export default {
   }
   .el-form-item:nth-of-type(6) {
     .el-button {
-      width: 450px;
-      height: 56px;
+      width: 450px*$size;
+      height: 56px*$size;
       background: rgba(224, 18, 32, 1);
       border: none;
-      border-radius: 28px;
-      font-size: 18px;
+      border-radius: 28px*$size;
+      font-size: 18px*$size;
       font-weight: 400;
       color: rgba(255, 255, 255, 1);
     }

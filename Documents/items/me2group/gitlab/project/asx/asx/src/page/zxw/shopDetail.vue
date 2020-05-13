@@ -26,7 +26,7 @@
           <div>
             <span>闪购价</span>
             <span>
-              <span style="font-size:22px">￥</span>
+              <span style="font-size:17px">￥</span>
               {{form.price}}
             </span>
             <span>{{form.priceDel}}</span>
@@ -54,7 +54,7 @@
             <span>优惠券</span>
             <div v-for="(item,index) in coypon" :key="index">
               <div>{{item.card}}</div>
-              <div v-if="getshow==0" @click="getTo">领取</div>
+              <div v-if="getshow==0" @click="getTo" style="padding-left:18px">领取</div>
                <div v-else-if="getshow==1">已领取</div>
             </div>
           </div>
@@ -223,129 +223,129 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>$size: 0.8;
 .shopDetail {
-
+  font-size:16px*$size;
   margin: 0 auto;
   .top {
-    width: 1280px;
-    margin: 40px auto;
+    width: 1280px*$size;
+    margin: 40px*$size auto;
   }
   .contain {
-    width: 1280px;
-    margin: 40px auto;
+    width: 1280px*$size;
+    margin: 40px*$size auto;
     display: flex;
     .left {
-      margin-right: 30px;
+      margin-right: 30px*$size;
       .bigImg {
-        width: 552px;
-        height: 552px;
-        border: 1px solid rgba(230, 230, 230, 1);
-        border-radius: 4px;
+        width: 552px*$size;
+        height: 552px*$size;
+        border: 1px*$size solid rgba(230, 230, 230, 1);
+        border-radius: 4px*$size;
         img {
-          width: 552px;
-          height: 552px;
+          width: 552px*$size;
+          height: 552px*$size;
         }
       }
       .imgs {
-        margin-top: 20px;
-        width: 552px;
+        margin-top: 20px*$size;
+        width: 552px*$size;
         display: flex;
         .imgBox {
-          width: 120px;
-          height: 120px;
-          border: 1px solid rgba(230, 230, 230, 1);
-          border-radius: 4px;
-          margin-right: 24px;
+          width: 120px*$size;
+          height: 120px*$size;
+          border: 1px*$size solid rgba(230, 230, 230, 1);
+          border-radius: 4px*$size;
+          margin-right: 24px*$size;
           box-sizing: border-box;
-          padding: 5px;
+          padding: 5px*$size;
           img {
-            width: 110px;
-            height: 110px;
+            width: 110px*$size;
+            height: 110px*$size;
           }
         }
         .clickImg {
-          border: 1px solid #000000;
+          border: 1px*$size solid #000000;
         }
       }
     }
     .right {
       > p:nth-child(1) {
-        font-size: 30px;
+        font-size: 30px*$size;
         font-family: DFYuanW5-GB;
         font-weight: 400;
         color: rgba(51, 51, 51, 1);
-        line-height: 36px;
+        line-height: 36px*$size;
         overflow: hidden;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
       }
       .priceBox {
-        width: 698px;
-        height: 130px;
+        width: 698px*$size;
+        height: 130px*$size;
         background-color: #f5f5f5;
-        margin-top: 20px;
-        padding: 0 20px;
+        margin-top: 20px*$size;
+        padding: 0 20px*$size;
         box-sizing: border-box;
         > div:nth-child(1) {
-          height: 80px;
-          border-bottom: 2px solid #ccc;
+          height: 80px*$size;
+          border-bottom: 2px*$size solid #ccc;
           > span:nth-child(1) {
-            font-size: 18px;
+            font-size: 18px*$size;
             font-family: DFYuanW5-GB;
             font-weight: 400;
             color: rgba(102, 102, 102, 1);
-            line-height: 36px;
+            line-height: 36px*$size;
           }
           > span:nth-child(2) {
-            font-size: 36px;
+            font-size: 36px*$size;
             font-family: PingFang SC;
             font-weight: 400;
             color: rgba(224, 18, 32, 1);
-            line-height: 80px;
-            margin: 0 10px 0 40px;
+            line-height: 80px*$size;
+            margin: 0 10px*$size 0 40px*$size;
           }
           > span:nth-child(3) {
-            font-size: 18px;
+            font-size: 18px*$size;
             font-family: PingFang SC;
             font-weight: 400;
             text-decoration: line-through;
             color: rgba(153, 153, 153, 1);
-            line-height: 80px;
+            line-height: 80px*$size;
           }
           > span:nth-child(4) {
             float: right;
-            font-size: 18px;
+            font-size: 18px*$size;
             font-family: DFYuanW5-GB;
             font-weight: 400;
             color: rgba(51, 51, 51, 1);
-            line-height: 80px;
-            margin-right: 10px;
+            line-height: 80px*$size;
+            margin-right: 10px*$size;
           }
           > span:nth-child(5) {
             float: right;
-            font-size: 18px;
+            font-size: 18px*$size;
             font-family: DFYuanW5-GB;
             font-weight: 400;
             // color: rgba(51, 51, 51, 1);
-            line-height: 80px;
-            margin-right: 10px;
+            line-height: 80px*$size;
+            margin-right: 10px*$size;
             color:red;
           }
         }
         > div:nth-child(2) {
           display: flex;
           justify-content: space-between;
-          padding: 0 100px;
+          padding: 0 100px*$size;
           span {
-            line-height: 48px;
-            font-size: 16px;
+            line-height: 48px*$size;
+            font-size: 16px*$size;
             font-family: DFYuanW5-GB;
             font-weight: 400;
             color: rgba(102, 102, 102, 1);
             span {
-              font-size: 18px;
+              font-size: 18px*$size;
               font-family: PingFang SC;
               font-weight: 400;
               color: rgba(224, 18, 32, 1);
@@ -354,148 +354,148 @@ export default {
         }
       }
       .coypon {
-        margin-top: 20px;
+        margin-top: 20px*$size;
         > div:nth-child(1) {
           display: flex;
           span {
-            font-size: 18px;
+            font-size: 18px*$size;
             font-family: DFYuanW5-GB;
             font-weight: 400;
             color: rgba(102, 102, 102, 1);
-            line-height: 38px;
-            margin-right: 20px;
+            line-height: 38px*$size;
+            margin-right: 20px*$size;
           }
           div {
-            width: 246px;
-            height: 38px;
+            width: 246px*$size;
+            height: 38px*$size;
             display: flex;
             > div:nth-child(1) {
-              height: 38px;
-              width: 158px;
+              height: 38px*$size;
+              width: 158px*$size;
               background-image: url("../../assets/img/zxw/fang.png");
               background-size: 100% 100%;
-              font-size: 18px;
+              font-size: 18px*$size;
               font-family: PingFang SC;
               font-weight: 400;
               color: rgba(224, 18, 32, 1);
-              line-height: 38px;
-              padding-left: 20px;
+              line-height: 38px*$size;
+              padding-left: 20px*$size;
               box-sizing: border-box;
-              margin-left: 20px;
+              margin-left: 20px*$size;
             }
             > div:nth-child(2) {
               background: url("../../assets/img/zxw/yuan.png");
               background-size: 100% 100%;
-              height: 34px;
-              width: 84px;
-              margin-top: 2px;
-              font-size: 18px;
+              height: 34px*$size;
+              width: 84px*$size;
+              margin-top: 2px*$size;
+              font-size: 18px*$size;
               font-family: DFYuanW5-GB;
               font-weight: 400;
               color: rgba(255, 255, 255, 1);
-              line-height: 34px;
+              line-height: 34px*$size;
               box-sizing: border-box;
-              margin-left: -4px;
+              margin-left: -4px*$size;
               text-align: center;
-              padding-left: 10px;
+              padding-left: 10px*$size;
             }
           }
         }
       }
       .address {
-        margin-top: 20px;
+        margin-top: 20px*$size;
         span {
-          font-size: 18px;
+          font-size: 18px*$size;
           font-family: DFYuanW5-GB;
           font-weight: 400;
           color: rgba(102, 102, 102, 1);
-          margin-right: 35px;
+          margin-right: 35px*$size;
         }
       }
       .size {
-        margin-top: 20px;
-        border-top: 2px solid #e6e6e6;
-        padding-top: 20px;
-        margin-right: 20px;
-        line-height: 50px;
+        margin-top: 20px*$size;
+        border-top: 2px*$size solid #e6e6e6;
+        padding-top: 20px*$size;
+        margin-right: 20px*$size;
+        line-height: 50px*$size;
         display: flex;
         span {
-          font-size: 18px;
+          font-size: 18px*$size;
           font-family: DFYuanW5-GB;
           font-weight: 400;
           color: rgba(102, 102, 102, 1);
-          margin-right: 40px;
+          margin-right: 40px*$size;
         }
         div {
           display: flex;
 
           .box {
-            width: 185px;
-            height: 50px;
+            width: 185px*$size;
+            height: 50px*$size;
             background: rgba(209, 69, 71, 0);
-            border: 2px solid #cccccc;
-            border-radius: 4px;
+            border: 2px*$size solid #cccccc;
+            border-radius: 4px*$size;
             display: inline-block;
             text-align: center;
-            margin-left: 10px;
+            margin-left: 10px*$size;
           }
         }
       }
       .zuhe {
-        margin-top: 20px;
-        margin-right: 20px;
-        line-height: 50px;
+        margin-top: 20px*$size;
+        margin-right: 20px*$size;
+        line-height: 50px*$size;
         display: flex;
         span {
-          font-size: 18px;
+          font-size: 18px*$size;
           font-family: DFYuanW5-GB;
           font-weight: 400;
           color: rgba(102, 102, 102, 1);
-          margin-right: 40px;
+          margin-right: 40px*$size;
         }
         .box {
-          width: 185px;
-          height: 50px;
+          width: 185px*$size;
+          height: 50px*$size;
           background: rgba(209, 69, 71, 0);
-          border: 2px solid #cccccc;
-          border-radius: 4px;
+          border: 2px*$size solid #cccccc;
+          border-radius: 4px*$size;
           display: inline-block;
           text-align: center;
-          margin-left: 10px;
+          margin-left: 10px*$size;
         }
       }
       .countNumber {
-        margin-top: 20px;
+        margin-top: 20px*$size;
         span {
-          font-size: 18px;
+          font-size: 18px*$size;
           font-family: DFYuanW5-GB;
           font-weight: 400;
           color: rgba(102, 102, 102, 1);
-          margin-right: 40px;
+          margin-right: 40px*$size;
         }
       }
       .buy {
         display: flex;
-        margin-top: 60px;
+        margin-top: 60px*$size;
         > button:nth-child(1) {
-          width: 220px;
-          height: 56px;
+          width: 220px*$size;
+          height: 56px*$size;
           background: #e01220;
-          border-radius: 4px;
+          border-radius: 4px*$size;
           border: none;
-          font-size: 20px;
+          font-size: 20px*$size;
           font-family: DFYuanW5-GB;
           font-weight: 400;
           color: rgba(255, 255, 255, 1);
-          margin-right: 18px;
+          margin-right: 18px*$size;
         }
         > button:nth-child(2) {
-          width: 220px;
-          height: 56px;
+          width: 220px*$size;
+          height: 56px*$size;
           background: #ffffff;
-          border: 2px solid rgba(224, 18, 32, 1);
-          border-radius: 4px;
-          font-size: 20px;
+          border: 2px*$size solid rgba(224, 18, 32, 1);
+          border-radius: 4px*$size;
+          font-size: 20px*$size;
           font-family: DFYuanW5-GB;
           font-weight: 400;
           color: rgba(224, 18, 32, 1);
@@ -504,21 +504,21 @@ export default {
     }
   }
   .bottom {
-    width: 1280px;
-    margin: 40px auto;
-    /deep/.el-tabs__content {
+    width: 1280px*$size;
+    margin: 40px*$size auto;
+    >>>.el-tabs__content {
       padding: 0;
     }
     .bottomBox {
-      width: 1280px;
-      height: 231px;
+      width: 1280px*$size;
+      height: 231px*$size;
       background: rgba(255, 255, 255, 1);
-      border: 1px solid rgba(230, 230, 230, 1);
-      border-radius: 0px 0px 0px 4px;
-      padding: 30px;
+      border: 1px*$size solid rgba(230, 230, 230, 1);
+      border-radius: 0px*$size 0px*$size 0px*$size 4px*$size;
+      padding: 30px*$size;
       box-sizing: border-box;
       p {
-        font-size: 20px;
+        font-size: 20px*$size;
         font-family: DFYuanW5-GB;
         font-weight: 400;
         color: rgba(51, 51, 51, 1);
@@ -526,30 +526,30 @@ export default {
       .boxItem {
         display: flex;
         div {
-          width: 420px;
+          width: 420px*$size;
           p {
-            font-size: 16px;
+            font-size: 16px*$size;
             font-family: DFYuanW5-GB;
             font-weight: 400;
             color: rgba(51, 51, 51, 1);
-            margin: 10px;
+            margin: 10px*$size;
           }
         }
       }
     }
     .bigIMG{
-      width: 1280px;
-      height: 1363px;
+      width: 1280px*$size;
+      height: 1363px*$size;
       img{
-         width: 1280px;
-        height: 1363px;
-        margin-top:20px;
+         width: 1280px*$size;
+        height: 1363px*$size;
+        margin-top:20px*$size;
       }
     }
    
   }
    .red{
-      border:2px solid red !important;
+      border:2px*$size solid red !important;
     }
 }
 </style>

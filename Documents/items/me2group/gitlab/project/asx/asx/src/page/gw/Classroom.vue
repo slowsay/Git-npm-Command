@@ -45,7 +45,7 @@
           </div>
           <div></div>
         </div>
-        <img src="../../assets/img/gw/27.png" @click="show=true"/>
+        <img src="../../assets/img/gw/27.png" @click="show=true" />
       </div>
     </div>
     <el-dialog title="提交建议" :visible.sync="show">
@@ -239,40 +239,41 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
+$size: 0.8;
 #Classroom {
-  width: 1280px;
+  width: 1280px * $size;
   margin: auto;
   > div:nth-child(2) {
-    margin: 40px 0;
+    margin: 40px * $size 0;
     display: flex;
     justify-content: space-between;
   }
   .left {
     position: relative;
-    width: 210px;
+    width: 210px * $size;
     overflow: hidden;
     > img {
       position: absolute;
       top: 0;
       left: 0;
-      width: 210px;
-      height: 890px;
+      width: 210px * $size;
+      height: 890px * $size;
     }
     > div {
       position: relative;
       float: left;
-      width: 100px;
-      height: 134px;
+      width: 100px * $size;
+      height: 134px * $size;
       z-index: 1;
-      margin-left: 3px;
-      margin-bottom: 3px;
+      margin-left: 3px * $size;
+      margin-bottom: 3px * $size;
       div {
         width: 100%;
-        height: 80px;
+        height: 80px * $size;
         img {
-          max-width: 65px;
-          max-height: 60px;
+          max-width: 65px * $size;
+          max-height: 60px * $size;
           position: relative;
           top: 50%;
           left: 50%;
@@ -281,25 +282,25 @@ export default {
       }
       p:nth-child(2) {
         text-align: center;
-        font-size: 16px;
+        font-size: 16px * $size;
         font-weight: 400;
         color: rgba(51, 51, 51, 1);
-        line-height: 22px;
-        margin-bottom: 7px;
+        line-height: 22px * $size;
+        margin-bottom: 7px * $size;
       }
       p:nth-child(3) {
         text-align: center;
-        font-size: 10px;
+        font-size: 10px * $size;
         font-weight: 400;
         color: rgba(179, 179, 179, 1);
-        line-height: 22px;
+        line-height: 22px * $size;
       }
     }
     > div:nth-child(2) {
       width: 100%;
-      height: 197px;
+      height: 197px * $size;
       img {
-        width: 205px;
+        width: 205px * $size;
         max-width: none;
         max-height: none;
         transform: translate(0, 0);
@@ -309,43 +310,43 @@ export default {
     }
   }
   .middle {
-    width: 785px;
+    width: 785px * $size;
   }
   .right {
-    width: 250px;
+    width: 250px * $size;
 
     > img {
-      width: 250px;
+      width: 250px * $size;
     }
   }
   .right > div {
-    width: 250px;
-    height: 718px;
-    border: 1px solid rgba(230, 230, 230, 1);
-    border-radius: 10px;
-    padding: 0 10px;
-    margin: 0 0 18px;
+    width: 250px * $size;
+    height: 718px * $size;
+    border: 1px * $size solid rgba(230, 230, 230, 1);
+    border-radius: 10px * $size;
+    padding: 0 10px * $size;
+    margin: 0 0 18px * $size;
     box-sizing: border-box;
     > div:nth-child(1) {
       width: 100%;
-      padding: 14px 0;
+      padding: 14px * $size 0;
       display: flex;
-      border-bottom: 1px dashed rgba(230, 230, 230, 1);
+      border-bottom: 1px * $size dashed rgba(230, 230, 230, 1);
       p {
-        width: 46px;
-        height: 24px;
-        border-radius: 12px;
-        font-size: 14px;
+        width: 46px * $size;
+        height: 24px * $size;
+        border-radius: 12px * $size;
+        font-size: 14px * $size;
         font-family: DFYuanW5-GB;
         font-weight: 400;
         color: rgba(0, 0, 0, 1);
-        line-height: 24px;
+        line-height: 24px * $size;
         flex-shrink: 0;
         text-align: center;
       }
       p:nth-child(1) {
-        width: 200px;
-        font-size: 16px;
+        width: 200px * $size;
+        font-size: 16px * $size;
         font-weight: bold;
         flex-shrink: 1;
         text-align: left;
@@ -356,23 +357,23 @@ export default {
       }
     }
     > div:nth-child(2) {
-      padding-bottom: 20px;
-      border-bottom: 1px dashed rgba(230, 230, 230, 1);
+      padding-bottom: 20px * $size;
+      border-bottom: 1px * $size dashed rgba(230, 230, 230, 1);
     }
     > div:nth-child(2) > div > div {
       display: flex;
       justify-content: space-between;
       p {
-        width: 47px;
-        font-size: 14px;
+        width: 47px * $size;
+        font-size: 14px * $size;
         font-weight: bold;
         color: rgba(51, 51, 51, 1);
-        line-height: 15px;
-        margin-top: 17px;
+        line-height: 15px * $size;
+        margin-top: 17px * $size;
         flex-shrink: 0;
       }
       p:nth-child(2) {
-        width: 200px;
+        width: 200px * $size;
         flex-shrink: 1;
       }
       p:nth-child(3) {
@@ -386,16 +387,16 @@ export default {
       display: flex;
       justify-content: space-between;
       p {
-        width: 47px;
-        font-size: 14px;
+        width: 47px * $size;
+        font-size: 14px * $size;
         font-weight: 400;
         color: rgba(51, 51, 51, 1);
-        line-height: 15px;
-        margin-top: 17px;
+        line-height: 15px * $size;
+        margin-top: 17px * $size;
         flex-shrink: 0;
       }
       p:nth-child(2) {
-        width: 200px;
+        width: 200px * $size;
         flex-shrink: 1;
       }
       p:nth-child(3) {
@@ -406,86 +407,86 @@ export default {
       }
     }
   }
-  /deep/.el-dialog {
-    width: 856px;
-    height: 594px;
-    border: 4px solid rgba(230, 230, 230, 1);
-    border-radius: 10px;
+  >>>.el-dialog {
+    width: 856px * $size;
+    height: 594px * $size;
+    border: 4px * $size solid rgba(230, 230, 230, 1);
+    border-radius: 10px * $size;
     .el-dialog__header {
-      padding: 30px;
-      font-size: 20px;
+      padding: 30px * $size;
+      font-size: 20px * $size;
       font-weight: bold;
       color: rgba(0, 0, 0, 1);
-      border-bottom: 1px solid #e6e6e6;
+      border-bottom: 1px * $size solid #e6e6e6;
     }
     .el-dialog__headerbtn {
-      right: 30px;
-      top: 30px;
-      font-size: 20px;
+      right: 30px * $size;
+      top: 30px * $size;
+      font-size: 20px * $size;
     }
     .el-dialog__body {
       padding: 0;
     }
   }
   .dialog {
-    padding: 40px 100px 0 30px;
+    padding: 40px * $size 100px * $size 0 30px * $size;
     > div {
       display: flex;
-      margin-bottom: 20px;
+      margin-bottom: 20px * $size;
       p {
-        width: 70px;
-        font-size: 16px;
+        width: 70px * $size;
+        font-size: 16px * $size;
         font-weight: 400;
-        line-height: 48px;
+        line-height: 48px * $size;
         color: rgba(51, 51, 51, 1);
         flex-shrink: 0;
       }
       .el-input {
-        /deep/input {
-          height: 48px;
+        >>>input {
+          height: 48px * $size;
         }
       }
     }
     > div:nth-child(3) {
-      height: 18px;
-      line-height: 18px;
-      padding-left: 70px;
+      height: 18px * $size;
+      line-height: 18px * $size;
+      padding-left: 70px * $size;
       img {
-        width: 16px;
+        width: 16px * $size;
         vertical-align: middle;
       }
       span {
-        font-size: 16px;
+        font-size: 16px * $size;
         font-weight: 400;
         color: rgba(27, 125, 219, 1);
         vertical-align: middle;
-        margin-right: 40px;
+        margin-right: 40px * $size;
       }
     }
     > div:nth-child(4) {
       .el-textarea {
-        /deep/textarea {
-          height: 160px;
+        >>>textarea {
+          height: 160px * $size;
         }
       }
     }
     > p:nth-of-type(1) {
-      margin-left: 70px;
-      font-size: 16px;
+      margin-left: 70px * $size;
+      font-size: 16px * $size;
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
     }
     .el-button {
-      margin: 30px 0 0 70px;
-      width: 90px;
-      height: 36px;
+      margin: 30px * $size 0 0 70px * $size;
+      width: 90px * $size;
+      height: 36px * $size;
       background: rgba(224, 18, 32, 1);
-      border-radius: 4px;
-      font-size: 16px;
+      border-radius: 4px * $size;
+      font-size: 16px * $size;
       font-family: DFYuanW5-GB;
       font-weight: 400;
-      padding:0;
-      line-height: 36px;
+      padding: 0;
+      line-height: 36px * $size;
       color: rgba(255, 255, 255, 1);
     }
   }

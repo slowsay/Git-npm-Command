@@ -28,37 +28,35 @@
       <div class="kuai"></div>
     </div>
     <div class="bottom">
-      <van-tabs v-model="active">
+      <van-tabs v-model="active" @click="channelHandle">
         <van-tab :title="form.title1">
           <div class="box">
             <div
               v-for="(item,index) in form.box"
               :key="index"
               class="imgBox"
-              @touchstart="gotouchstart(index)"
-              @touchmove="gotouchmove"
-              @touchend="gotouchend"
+              @click="gotouchstart(index)"
             >
               <div :class="changered==index ?'red':'pop' ">
                 <div class="delBtn">
                   <div class="del">
-                    <img class="delImg" src="../../assets/image/zxw/del.png" alt/>&nbsp;删除
+                    <img class="delImg" src="../../assets/image/zxw/del.png" @click="delHandle(item)"/>&nbsp;删除
                   </div>
                 </div>
               </div>
-              <img class="bgImg" :src="item.boxImg" alt/>
+              <img class="bgImg" :src="item.boxImg"/>
 
               <div class="boxBottom">
-                <p class="boxName">{{item.name}}</p>
+                <p class="boxName">{{item.title}}</p>
 
                 <p class="boxChakan">
                   <span>
-                    <img style="width:.18rem" src="../../assets/image/zxw/chakan.png" alt/>
-                    <span>{{item.chakanNum}}</span>
+                    <img style="width:.18rem" src="../../assets/image/zxw/chakan.png"/>
+                    <span>{{item.viewCount}}</span>
                   </span>
                   <span>
-                    <img style="width:.16rem" src="../../assets/image/zxw/star.png" alt/>
-                    <span>{{item.starNum}}</span>
+                    <img style="width:.16rem" src="../../assets/image/zxw/star.png"/>
+                    <span>{{item.collectCount}}</span>
                   </span>
                 </p>
               </div>
@@ -68,33 +66,31 @@
         <van-tab :title="form.title2">
           <div class="box">
             <div
-              v-for="(item,index) in form.box"
+              v-for="(item,index) in form.collect"
               :key="index"
               class="imgBox"
-              @touchstart="gotouchstart(index)"
-              @touchmove="gotouchmove"
-              @touchend="gotouchend"
+              @click="gotouchstart(index)"
             >
               <div :class="changered==index ?'red':'pop' ">
                 <div class="delBtn">
                   <div class="del">
-                    <img class="delImg" src="../../assets/image/zxw/del.png" alt/>&nbsp;删除
+                    <img class="delImg" src="../../assets/image/zxw/del.png" @click="delCollectHandle(item)"/>&nbsp;删除
                   </div>
                 </div>
               </div>
-              <img class="bgImg" :src="item.boxImg" alt/>
+              <img class="bgImg" :src="item.boxImg"/>
 
               <div class="boxBottom">
-                <p class="boxName">{{item.name}}</p>
+                <p class="boxName">{{item.title}}</p>
 
                 <p class="boxChakan">
                   <span>
                     <img style="width:.18rem" src="../../assets/image/zxw/chakan.png" alt/>
-                    <span>{{item.chakanNum}}</span>
+                    <span>{{item.viewCount}}</span>
                   </span>
                   <span>
                     <img style="width:.16rem" src="../../assets/image/zxw/star.png" alt/>
-                    <span>{{item.starNum}}</span>
+                    <span>{{item.collectCount}}</span>
                   </span>
                 </p>
               </div>
@@ -102,6 +98,13 @@
           </div>
         </van-tab>
       </van-tabs>
+      <!--<van-dialog-->
+      <!--v-model="delVisible"-->
+      <!--title="信息"-->
+      <!--show-cancel-button-->
+      <!--&gt;-->
+      <!--确定要删除吗？-->
+      <!--</van-dialog>-->
     </div>
   </div>
 </template>
@@ -112,6 +115,7 @@
   export default {
     data: function () {
       return {
+        delVisible: false,
         timeOutEvent: 0,
         changered: -1,
         active: 0,
@@ -128,21 +132,18 @@
           title2: "收藏",
           title1Number: "222",
           title2Number: "222",
+          collect: [],
           box: [
-            {
-              boxImg: require("../../assets/image/zxw/shop.png"),
-              name: "一口好锅的作用",
-              chakanNum: 222,
-              starNum: 222
-            }
+//            {
+//              boxImg: require("../../assets/image/zxw/shop.png"),
+//              title: "一口好锅的作用",
+//              viewCount: 1,
+//              collectCount: 23
+//            }
           ]
         }
       };
     },
-//    mounted: function () {
-//      this.title();
-//      this.getActive();
-//    },
     created: function () {
       if (publicFn.getStore('asxUserInfo')) {
         this.userinfo = JSON.parse(publicFn.getStore('asxUserInfo'));
@@ -155,22 +156,58 @@
     methods: {
       init: function () {
         this.headerobj = {token: this.userinfo.token, userId: this.userinfo.id};
-        //锅物说论坛我的信息首页
-        this.BBSUserINfo();
-        //锅物说论坛发布帖子 ，用户ID、板块ID、标题、内容、状态
-        this.BBSPublishPost();
+        //我的帖子列表
+        this.myPostList();
+        //收藏列表
+        this.collectList();
       },
-      //锅物说论坛我的信息首页
-      BBSUserINfo: function () {
+      channelHandle: function (id, name) {
+        this.changered = -1;
+        if (id == 0) {
+          //我的帖子列表
+          this.myPostList();
+        }
+        else {
+          //收藏列表
+          this.collectList();
+        }
+      },
+      //我的帖子列表
+      myPostList: function () {
         var _this = this;
         API.request({
           method: "post",
-          url: API.BBSUserINfo,
+          url: API.myPostList,
           headers: this.headerobj,
-          data: API.qs.stringify({userID: this.userinfo.id})
         }).then(function (e) {
           if (e.data.code == 200) {
             if (e.data.success) {
+              _this.form.box = _this.exchangeData(e.data.data.list || []);
+              _this.form.title1 = "发帖(" + e.data.data.total + ")";
+            }
+            else {
+              API.dialog({message: JSON.stringify(e.data.msg)});
+            }
+          }
+          else {
+            API.dialog({message: JSON.stringify(e.data.msg)});
+          }
+        }).catch(function (e) {
+          API.dialog({message: JSON.stringify(e)});
+        })
+      },
+      //收藏列表
+      collectList: function () {
+        var _this = this;
+        API.request({
+          method: "post",
+          url: API.collectList,
+          headers: this.headerobj,
+        }).then(function (e) {
+          if (e.data.code == 200) {
+            if (e.data.success) {
+              _this.form.collect = _this.exchangeData(e.data.data.list || []);
+              _this.form.title2 = "收藏(" + e.data.data.total + ")";
             }
             else {
               API.dialog({message: JSON.stringify(e.data.msg)});
@@ -184,18 +221,45 @@
           API.dialog({message: JSON.stringify(e)});
         })
       },
-      //锅物说论坛发布帖子 ，用户ID、板块ID、标题、内容、状态
-      BBSPublishPost: function () {
+      //取消删除
+      delCollectHandle: function (row) {
         var _this = this;
         API.request({
           method: "post",
-          url: API.BBSPublishPost,
+          url: API.cancelCollect,
           headers: this.headerobj,
-          data: API.qs.stringify({keywords: this.userinfo.id})
+          data: API.qs.stringify({postId: row.postId})
         }).then(function (e) {
           if (e.data.code == 200) {
             if (e.data.success) {
-              _this.form.box = e.data.data || [];
+              API.dialog({message: "删除成功"});
+              _this.init();
+            }
+            else {
+              API.dialog({message: JSON.stringify(e.data.msg)});
+            }
+          }
+          else {
+            API.dialog({message: JSON.stringify(e.data.msg)});
+          }
+
+        }).catch(function (e) {
+          API.dialog({message: JSON.stringify(e)});
+        })
+      },
+      //删除
+      delHandle: function (row) {
+        var _this = this;
+        API.request({
+          method: "post",
+          url: API.deleteLtForum,
+          headers: this.headerobj,
+          data: API.qs.stringify({postId: row.postId})
+        }).then(function (e) {
+          if (e.data.code == 200) {
+            if (e.data.success) {
+              API.dialog({message: "删除成功"});
+              _this.init();
             }
             else {
               API.dialog({message: JSON.stringify(e.data.msg)});
@@ -219,28 +283,36 @@
       },
       gotouchstart: function (index) {
         var _this = this;
-        clearTimeout(this.timeOutEvent);
-        this.timeOutEvent = 0;
-        this.timeOutEvent = setTimeout(function () {
-          _this.changered = index;
-        }, 600);
-        console.log(this.timeOutEvent);
+//        clearTimeout(this.timeOutEvent);
+//        this.timeOutEvent = 0;
+//        this.timeOutEvent = setTimeout(function () {
+        _this.changered = index;
+//        }, 600);
+//        console.log(this.timeOutEvent);
       },
       //手释放，如果在500毫秒内释放，则取消长按事件，此时可以执行onclick应该执行的事件
-      gotouchend: function () {
-        clearTimeout(this.timeOutEvent);
-        console.log(this.timeOutEvent);
-        if (this.timeOutEvent != 0) {
-          //跳转到详情页
-          console.log(1);
-        }
-        return false;
-      },
+//      gotouchend: function () {
+//        clearTimeout(this.timeOutEvent);
+//        console.log(this.timeOutEvent);
+//        if (this.timeOutEvent != 0) {
+//          //跳转到详情页
+//          console.log(1);
+//        }
+//        return false;
+//      },
       //如果手指有移动，则取消所有事件，此使说明用户只是要移动而不是长按
-      gotouchmove: function () {
-        clearTimeout(this.timeOutEvent); //消除定时器
-        this.timeOutEvent = 0;
-        console.log(3);
+//      gotouchmove: function () {
+//        clearTimeout(this.timeOutEvent); //消除定时器
+//        this.timeOutEvent = 0;
+//        console.log(3);
+//      },
+      //数据转变
+      exchangeData: function (v) {
+        for (var i = 0, arr = v; i < arr.length; i++) {
+          arr[i].boxImg = "http://qiandian.oss-cn-hangzhou.aliyuncs.com/image/2019-11-29/4efb422d-2b3d-4c79-ac85-a08999f46244.jpg";
+          arr[i].collectCount = arr[i].collectCount || 0;
+        }
+        return arr;
       }
     }
   };

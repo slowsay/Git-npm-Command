@@ -5,14 +5,16 @@ import App from './App'
 import router from './router'
 import '../static/css/main.css'
 import ElementUI from 'element-ui';
+import { Progress } from 'vant';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.config.productionTip = false
 Vue.use(ElementUI);
+Vue.use(Progress);
 /* eslint-disable no-new */
 
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })

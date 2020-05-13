@@ -5,7 +5,7 @@
         <img :src="image.photo" @click="$router.push('/RecipeDetails')"/>
       </van-swipe-item>
     </van-swipe>
-    <img :src="image"/>
+    <img :src="image" @click="$router.push('/Recipe')"/>
 
     <div class="title">今日食谱</div>
     <div class="today">
@@ -104,7 +104,12 @@
       };
     },
     created: function () {
-      this.userinfo = {token: "asxtoken", id: 'asx001'};
+      if (publicFn.getStore("asxUserInfo")) {
+        this.userinfo = JSON.parse(publicFn.getStore("asxUserInfo"));
+      }
+      else {
+        this.userinfo = {token: "asxtoken", id: '1'};
+      }
       this.init();
     },
     methods: {

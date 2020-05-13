@@ -97,6 +97,7 @@ export default {
   //帖子类
   deleteLtForum: baseUrl + '/lt/post/deleteLtForum', //删除帖子
   ltPostList: baseUrl + '/lt/post/ltPostList', //帖子列表
+  myPostList: baseUrl + '/lt/post/myPostList', //我的帖子列表
   postLtForum: baseUrl + '/lt/post/postLtForum', //发帖子
   recommendList: baseUrl + '/lt/post/recommendList', //帖子推荐列表
   selectPost: baseUrl + '/lt/post/selectPost', //模糊查询搜索帖子
@@ -175,6 +176,7 @@ export default {
   personinfo: baseUrl + '/user/personinfo', //微信用户信息注册
   logOut: baseUrl + '/user/v1/logOut', //退出登录
   updateUserLoc: baseUrl + '/user/v1/updateUserLoc', //修改用戶经纬度
+  register: baseUrl + '/user/v1/register', //验证码登录
 
   //网站信息控制类
   websiteBanner: baseUrl + '/website/bannner', //首页轮播图信息

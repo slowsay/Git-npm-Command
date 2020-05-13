@@ -125,6 +125,12 @@
       };
     },
     created: function () {
+      if (publicFn.getStore("asxUserInfo")) {
+        this.userinfo = JSON.parse(publicFn.getStore("asxUserInfo"));
+      }
+      else {
+        this.userinfo = {token: "asxtoken", id: '1'};
+      }
       this.init();
     },
     methods: {

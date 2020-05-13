@@ -154,56 +154,56 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>$size: 0.8;
 #Classification_0 {
   .box {
-    width: 1280px;
+    width: 1280px*$size;
     margin: auto;
   }
   .top {
-    width: 1280px;
-    margin: 40px auto;
+    width: 1280px*$size;
+    margin: 40px*$size auto;
     img {
-      width: 160px;
-      height: 160px;
-      border-radius: 5px;
+      width: 160px*$size;
+      height: 160px*$size;
+      border-radius: 5px*$size;
       float: left;
-      margin-right: 30px;
+      margin-right: 30px*$size;
     }
     > p:nth-of-type(1) {
-      font-size: 28px;
+      font-size: 28px*$size;
       font-weight: bold;
       color: rgba(0, 0, 0, 1);
-      line-height: 28px;
-      margin: 9px 0 18px;
+      line-height: 28px*$size;
+      margin: 9px*$size 0 18px*$size;
     }
     p:nth-of-type(2) {
-      font-size: 18px;
+      font-size: 18px*$size;
       font-weight: 400;
       color: rgba(27, 125, 219, 1);
     }
     p:nth-of-type(3) {
-      font-size: 18px;
+      font-size: 18px*$size;
       font-family: DFYuanW5-GB;
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
-      margin: 15px 0;
+      margin: 15px*$size 0;
       span {
-        margin-right: 18px;
+        margin-right: 18px*$size;
       }
     }
     .el-input {
       float: right;
-      width: 240px;
-      height: 28px;
-      /deep/input {
-        height: 28px;
-        border: 1px solid rgba(204, 204, 204, 1);
-        border-radius: 14px;
-        font-size: 16px;
+      width: 240px*$size;
+      height: 28px*$size;
+      >>>input {
+        height: 28px*$size;
+        border: 1px*$size solid rgba(204, 204, 204, 1);
+        border-radius: 14px*$size;
+        font-size: 16px*$size;
       }
-      /deep/i {
-        line-height: 28px;
+      >>>i {
+        line-height: 28px*$size;
       }
     }
   }
@@ -212,94 +212,94 @@ export default {
       display: inline-block;
       position: relative;
       p {
-        height: 28px;
+        height: 28px*$size;
         background: rgba(224, 18, 32, 1);
-        border-radius: 14px;
-        font-size: 14px;
+        border-radius: 14px*$size;
+        font-size: 14px*$size;
         font-weight: 400;
-        line-height: 28px;
+        line-height: 28px*$size;
         text-align: center;
-        padding: 0 22px;
-        margin-right: 10px;
+        padding: 0 22px*$size;
+        margin-right: 10px*$size;
         color: rgba(255, 255, 255, 1);
       }
       i {
         position: absolute;
-        font-size: 20px;
+        font-size: 20px*$size;
         color: #333333;
         border-radius: 50%;
-        border: 1px solid #fff;
-        top: -10px;
-        right: 0px;
+        border: 1px*$size solid #fff;
+        top: -10px*$size;
+        right: 0px*$size;
         visibility: hidden;
       }
     }
     > div:nth-last-child(1) {
-      width: 56px;
-      height: 28px;
-      border-radius: 14px;
+      width: 56px*$size;
+      height: 28px*$size;
+      border-radius: 14px*$size;
       box-sizing: border-box;
       vertical-align: bottom;
-      border: 1px solid #ccc;
+      border: 1px*$size solid #ccc;
       text-align: center;
-      line-height: 26px;
+      line-height: 26px*$size;
       i {
         position: static;
         border: none;
         font-weight: bold;
         color: #ccc;
-        font-size: 12px;
+        font-size: 12px*$size;
         visibility: visible;
       }
     }
   }
   .body {
-    width: 1280px;
+    width: 1280px*$size;
     margin: auto;
     overflow: hidden;
     > div {
-      width: 1300px;
+      width: 1300px*$size;
     }
     > div > div {
       float: left;
       img {
-        width: 305px;
-        height: 305px;
-        border-radius: 10px;
-        margin-right: 20px;
+        width: 305px*$size;
+        height: 305px*$size;
+        border-radius: 10px*$size;
+        margin-right: 20px*$size;
       }
       p {
-        font-size: 20px;
+        font-size: 20px*$size;
         font-weight: 400;
-        line-height: 19px;
-        margin: 18px 0 30px;
+        line-height: 19px*$size;
+        margin: 18px*$size 0 30px*$size;
         color: rgba(51, 51, 51, 1);
       }
     }
     > div > div:nth-last-child(1) {
-      margin-bottom: 130px;
+      margin-bottom: 130px*$size;
     }
   }
-  /deep/.el-dialog {
+  >>>.el-dialog {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     margin: 0!important;
-    width: 404px;
-    border: 4px solid rgba(230, 230, 230, 1);
-    border-radius: 10px;
+    width: 404px*$size;
+    border: 4px*$size solid rgba(230, 230, 230, 1);
+    border-radius: 10px*$size;
     .el-dialog__header {
-      padding: 30px;
-      font-size: 20px;
+      padding: 30px*$size;
+      font-size: 20px*$size;
       font-weight: 400;
       color: rgba(0, 0, 0, 1);
-      border-bottom: 1px solid #e6e6e6;
+      border-bottom: 1px*$size solid #e6e6e6;
     }
     .el-dialog__headerbtn {
-      right: 30px;
-      top: 30px;
-      font-size: 20px;
+      right: 30px*$size;
+      top: 30px*$size;
+      font-size: 20px*$size;
     }
     .el-dialog__body {
       padding: 0;
@@ -309,27 +309,27 @@ export default {
     font-size: 0;
     > div {
       display: inline-block;
-      height: 454px;
-      border-bottom: 1px solid #ccc;
+      height: 454px*$size;
+      border-bottom: 1px*$size solid #ccc;
       vertical-align: top;
-      padding: 30px 0 0 30px;
+      padding: 30px*$size 0 0 30px*$size;
       box-sizing: border-box;
     }
     > div:nth-of-type(1) {
       width: 40%;
-      border-right: 1px solid #ccc;
+      border-right: 1px*$size solid #ccc;
       box-sizing: border-box;
       img {
         float: right;
-        width: 6px;
-        margin: 4px 30px 0 0;
+        width: 6px*$size;
+        margin: 4px*$size 30px*$size 0 0;
       }
       p {
-        font-size: 18px;
-        line-height: 18px;
+        font-size: 18px*$size;
+        line-height: 18px*$size;
         font-weight: 400;
         color: #333333;
-        margin-bottom: 30px;
+        margin-bottom: 30px*$size;
       }
       .active {
         p {
@@ -340,35 +340,35 @@ export default {
     > div:nth-of-type(2) {
       width: 60%;
       div {
-        width: 66px;
-        height: 28px;
-        border: 1px solid rgba(179, 179, 179, 1);
-        border-radius: 14px;
+        width: 66px*$size;
+        height: 28px*$size;
+        border: 1px*$size solid rgba(179, 179, 179, 1);
+        border-radius: 14px*$size;
         text-align: center;
-        line-height: 28px;
-        font-size: 14px;
+        line-height: 28px*$size;
+        font-size: 14px*$size;
         font-family: DFYuanW5-GB;
         font-weight: 400;
         color: rgba(102, 102, 102, 1);
-        margin-bottom: 20px;
+        margin-bottom: 20px*$size;
       }
       .active {
         color: #fff;
         background: #e01220;
-        border: 1px solid #e01220;
+        border: 1px*$size solid #e01220;
       }
     }
     .el-button {
       display: block;
-      width: 264px;
-      height: 40px;
+      width: 264px*$size;
+      height: 40px*$size;
       background: rgba(224, 18, 32, 1);
-      border-radius: 4px;
-      font-size: 16px;
+      border-radius: 4px*$size;
+      font-size: 16px*$size;
       font-family: DFYuanW5-GB;
       font-weight: 400;
       color: rgba(255, 255, 255, 1);
-      margin: 10px auto 10px;
+      margin: 10px*$size auto 10px*$size;
     }
   }
 }

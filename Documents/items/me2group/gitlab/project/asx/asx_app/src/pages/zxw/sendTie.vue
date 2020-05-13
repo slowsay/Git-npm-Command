@@ -43,16 +43,18 @@
       send: function () {
         var _this = this;
         if (this.value != '' && this.value1 != '') {
+          //type(1单选 2多选)
+          var params = {title: this.value, content: this.value1, options: '', type: '1'};
           API.request({
             method: "post",
-            url: API.BBSPublishPost,
+            url: API.postLtForum,
             headers: this.headerobj,
-            data: API.qs.stringify({keywords: this.userinfo.id})
+            data: API.qs.stringify(params)
           }).then(function (e) {
             if (e.data.code == 200) {
               if (e.data.success) {
                 API.dialog({message: API.msg.SUCCESS_ISSUE});
-                _this.$router.go(-1);
+                _this.$router.push("/friendSay");
               }
               else {
                 API.dialog({message: JSON.stringify(e.data.msg)});

@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
+
 export default new Router({
   routes: [{
     path: '/',
@@ -25,6 +26,11 @@ export default new Router({
         name: '忘记密码',
         component: () => import("../page/gw/Forget.vue")
       },
+        {
+          path: 'Quicklogin',
+            name: '快速登录',
+          component: () => import("../page/gw/Quicklogin.vue")
+        },
       {
         path: 'Personal',
         name: '个人中心',
@@ -78,12 +84,21 @@ export default new Router({
             component: () => import("../page/gw/Coupon.vue"),
           }, {
             path: 'Address',
-            name: '更换默认地址',
+            name: '新增默认地址',
             component: () => import("../page/gw/Address.vue"),
           },
+          {
+              path: 'Address1',
+                name: '更换默认地址',
+                component: () => import("../page/gw/Address1.vue"),
+            },
+        {
+          path: 'Setting',
+            name: '消息设置',
+          component: () => import("../page/gw/Setting.vue"),
+        }
         ]
       },
-
       //zxw
       {
         path: 'shop',
@@ -120,7 +135,6 @@ export default new Router({
         name: '支付成功',
         component: () => import("../page/zxw/paysuccess.vue")
       },
-
       //zch
       {
         path: "index",

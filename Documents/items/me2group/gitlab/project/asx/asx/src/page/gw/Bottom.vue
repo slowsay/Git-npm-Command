@@ -40,7 +40,7 @@
         </div>
         <div class="right">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+            Lopx*$size ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
             <br />Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
           </p>
           <div>
@@ -114,49 +114,49 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>$size: 0.8;
 #Bottom {
   > div {
     display: flex;
     flex-direction: column;
     align-items: center;
     > div {
-      width: 1275px;
+      width: 1275px*$size;
     }
   }
   .gray {
-    padding-top: 38px;
+    padding-top: 38px*$size;
     background: rgba(240, 240, 240, 1);
 
     > img {
       display: block;
-      width: 1275px;
-      height: 4px;
-      margin-bottom: 38px;
+      width: 1275px*$size;
+      height: 4px*$size;
+      margin-bottom: 38px*$size;
     }
   }
   .gray .top {
     display: flex;
     justify-content: space-between;
     > div {
-      width: 350px;
+      width: 350px*$size;
       img {
         float: left;
-        height: 46px;
-        margin: 0 18px 20px 0;
+        height: 46px*$size;
+        margin: 0 18px*$size 20px*$size 0;
       }
       p:nth-of-type(1) {
-        font-size: 32px;
+        font-size: 32px*$size;
         font-weight: 800;
         color: rgba(79, 87, 92, 1);
-        line-height: 46px;
+        line-height: 46px*$size;
       }
       p:nth-of-type(2) {
-        font-size: 16px;
+        font-size: 16px*$size;
         font-weight: bold;
         color: rgba(119, 127, 132, 1);
-        line-height: 30px;
-        margin-bottom: 30px;
+        line-height: 30px*$size;
+        margin-bottom: 30px*$size;
       }
     }
   }
@@ -164,67 +164,67 @@ export default {
     display: flex;
     justify-content: space-between;
     .left {
-      width: 400px;
+      width: 400px*$size;
       p {
-        font-size: 16px;
+        font-size: 16px*$size;
         font-family: PingFang;
         font-weight: bold;
         color: rgba(119, 127, 132, 1);
-        line-height: 40px;
+        line-height: 40px*$size;
       }
       p:nth-of-type(1) {
-        font-size: 20px;
+        font-size: 20px*$size;
         font-family: PingFang;
         font-weight: 800;
         color: rgba(79, 87, 92, 1);
-        line-height: 20px;
-        margin-bottom: 25px;
+        line-height: 20px*$size;
+        margin-bottom: 25px*$size;
       }
     }
     .right {
       flex-shrink: 0;
       text-align: center;
       p {
-        font-size: 16px;
+        font-size: 16px*$size;
         font-weight: bold;
         color: rgba(119, 127, 132, 1);
-        line-height: 30px;
+        line-height: 30px*$size;
       }
       p:nth-of-type(1) {
-        font-size: 32px;
+        font-size: 32px*$size;
         font-family: PingFang;
         font-weight: 800;
         color: rgba(224, 18, 32, 1);
-        line-height: 32px;
-        margin-bottom: 20px;
+        line-height: 32px*$size;
+        margin-bottom: 20px*$size;
       }
       p:nth-of-type(4) {
-        margin: 20px 0;
+        margin: 20px*$size 0;
       }
       p:nth-of-type(5) {
-        width: 256px;
-        height: 56px;
+        width: 256px*$size;
+        height: 56px*$size;
         background: rgba(255, 255, 255, 1);
-        border: 1px solid rgba(79, 87, 92, 1);
-        border-radius: 10px;
-        margin-bottom: 40px;
-        line-height: 56px;
+        border: 1px*$size solid rgba(79, 87, 92, 1);
+        border-radius: 10px*$size;
+        margin-bottom: 40px*$size;
+        line-height: 56px*$size;
         text-align: left;
-        padding: 0 24px;
-        font-size: 16px;
+        padding: 0 24px*$size;
+        font-size: 16px*$size;
         font-family: PingFang;
         font-weight: 500;
         color: rgba(79, 87, 92, 1);
       }
       i {
         float: right;
-        line-height: 56px;
+        line-height: 56px*$size;
       }
     }
   }
   .black {
     background: rgba(79, 87, 92, 1);
-    padding: 60px 0 80px;
+    padding: 60px*$size 0 80px*$size;
     > div {
       display: flex;
       justify-content: space-between;
@@ -232,69 +232,69 @@ export default {
   }
   .black .left {
     p:nth-of-type(1) {
-      font-size: 24px;
+      font-size: 24px*$size;
       font-family: PingFang;
       font-weight: bold;
       color: rgba(255, 255, 255, 1);
-      line-height: 48px;
-      margin-bottom: 40px;
+      line-height: 48px*$size;
+      margin-bottom: 40px*$size;
       img {
-        width: 48px;
-        height: 48px;
+        width: 48px*$size;
+        height: 48px*$size;
         background: rgba(255, 255, 255, 1);
-        border-radius: 24px;
-        margin-right: 20px;
+        border-radius: 24px*$size;
+        margin-right: 20px*$size;
         vertical-align: middle;
       }
     }
     p:nth-of-type(2) {
-      font-size: 24px;
+      font-size: 24px*$size;
       font-weight: 500;
       color: rgba(255, 255, 255, 1);
-      line-height: 32px;
-      margin-bottom: 20px;
+      line-height: 32px*$size;
+      margin-bottom: 20px*$size;
     }
     p:nth-of-type(3) {
-      font-size: 12px;
+      font-size: 12px*$size;
       font-weight: bold;
       color: rgba(255, 255, 255, 1);
-      line-height: 13px;
+      line-height: 13px*$size;
     }
   }
   .black .right {
     > p {
-      font-size: 16px;
+      font-size: 16px*$size;
       font-weight: normal;
       color: rgba(255, 255, 255, 1);
-      line-height: 18px;
+      line-height: 18px*$size;
       width: fit-content;
-      margin: 0 0 90px auto;
+      margin: 0 0 90px*$size auto;
     }
     > div {
       display: flex;
       justify-content: space-between;
     }
     > div div {
-      width: 200px;
+      width: 200px*$size;
       img {
-        width: 64px;
-        height: 64px;
+        width: 64px*$size;
+        height: 64px*$size;
         background: rgba(255, 255, 255, 1);
         opacity: 0.3;
-        border-radius: 8px;
+        border-radius: 8px*$size;
         float: left;
-        margin-right: 20px;
+        margin-right: 20px*$size;
       }
       p {
-        font-size: 14px;
+        font-size: 14px*$size;
         font-family: PingFang;
         font-weight: bold;
         color: rgba(255, 255, 255, 1);
-        line-height: 30px;
+        line-height: 30px*$size;
       }
     }
     >div div:nth-last-child(1){
-      width: 160px;
+      width: 160px*$size;
     }
   }
 }

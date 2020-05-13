@@ -46,9 +46,19 @@
 </template>
 <script>
 import locationData from "./pcas-code.json";
+import API from '../../api/index';
+import {publicFn} from '../../utils/util';
 export default {
   name: "linkarea", // vue component name
   props: {
+    //地址详细
+    areaDetail:{
+      type:String,
+      default:()=>null
+    },
+    openclose:{
+      type:Boolean
+    },
     //地址编码
     loCode: {
       type: String,
@@ -60,8 +70,10 @@ export default {
       default: () => 4
     }
   },
-  data() {
+  data:function() {
     return {
+      outdefault:true,
+      address:'',
       chooseIndex: -1, //对应省市县
       showDataArray: [],
       provinceArray: [],
@@ -86,12 +98,42 @@ export default {
       this.maxLen = width + "px";
     }
   },
+    created:function(){
+      if (publicFn.getStore("qluserInfo")) {
+        this.userinfo = JSON.parse(publicFn.getStore("qluserInfo"));
+        this.init();
+      }
+      else {
+        this.$router.push('/Login');
+      }
+
+    },
   methods: {
+    init:function(){
+      this.headerobj = {token: this.userinfo.token, userId: this.userinfo.id};
+      if(this.areaDetail!=''){
+        this.address=this.areaDetail;
+        this.getAddressData();
+      }
+      else{
+        this.province="请选择省",
+          this.city="请选择市",
+          this.county="请选择区",
+          this.road="请选择街道";
+      }
+    },
+    getAddressData:function(){
+      var _arr= this.address.split('/');
+      this.province=_arr[0];
+      this.city=_arr[1];
+      this.county= _arr[2];
+      this.road= _arr[3];
+    },
     /**
      * @description 点击span事件
      * @param index 点击顺序
      */
-    selectClick(index) {
+    selectClick:function(index) {
       switch (index) {
         //选择省
         case 0:
@@ -131,7 +173,7 @@ export default {
      * @description 处理展开操作
      * @param index 点击的顺序
      */
-    selectHandler(index) {
+    selectHandler:function(index) {
       this.chooseIndex = index;
       this.showList = true;
       //增加滚动条置顶
@@ -145,8 +187,9 @@ export default {
      * @param code 选中值
      * @param areaName 选中名称
      */
-    chooseOption(code, areaName) {
+    chooseOption:function(code, areaName) {
       this.locationCode = code;
+      this.outdefault=false;
       switch (this.chooseIndex) {
         //选择省
         case 0:
@@ -193,7 +236,7 @@ export default {
      * @param arrayData 数据源
      * @param len 截取长度
      */
-    reloadData(arrayData, len) {
+    reloadData:function(arrayData, len) {
       let tempArray = [];
       tempArray = arrayData.find(item => {
         return item.code == this.locationCode.substr(0, len);
@@ -204,7 +247,7 @@ export default {
      * @description 根据编码找到对应地区
      * @param locationCode 地区编码
      */
-    findLocation(locationCode) {
+    findLocation:function(locationCode) {
       let tempIndex = 0;
       this.provinceArray = locationData;
       if (locationCode.length > 1) {
@@ -257,7 +300,7 @@ export default {
     /**
      * @description 失焦后隐藏下拉列表
      */
-    hideList() {
+    hideList:function() {
       this.showList = false;
       this.chooseIndex = -1;
     },
@@ -266,13 +309,13 @@ export default {
      * @param level 级别
      * @returns boolean
      */
-    showLevel(level) {
+    showLevel:function(level) {
       return this.LEVEL >= level;
     },
     /**
      * @description 点击箭头事件
      */
-    showSelect() {
+    showSelect:function() {
       if (this.showList) {
         this.showList = false;
       } else {
@@ -283,25 +326,47 @@ export default {
   watch: {
     /* 将选中的地区值传递给父组件 */
     locationCode(val) {
+//      console.log('>>>>>>>>>>',val,this.province)
       let locationStr = "",
         returnObj = {};
       if (val.length > 1) {
-        locationStr += this.province;
+        locationStr += this.province||'';
       }
       if (val.length > 3) {
-        locationStr += this.city;
+        locationStr += this.city||'';
       }
       if (val.length > 5) {
-        locationStr += this.county;
+        locationStr += this.county||'';
       }
       if (val.length > 8) {
-        locationStr += this.road;
+        locationStr += this.road||'';
       }
       returnObj = { name: locationStr, value: val };
       this.$emit("location", returnObj);
     },
+    openclose(v){
+      if(v){
+        this.outdefault=true;
+      }
+    },
+    //子继承父变
+    areaDetail(v){
+      console.log(v);
+      if(v==""){
+        this.province="请选择省",
+          this.city="请选择市",
+          this.county="请选择区",
+          this.road="请选择街道";
+      }
+      else{
+        this.address=v;
+        if(this.outdefault){
+         this.getAddressData();
+        }
+      }
+    },
     /* 根据传进来的值定位地区 */
-    loCode(val) {
+    loCode:function(val) {
       if (val != undefined && val != null && val != "") {
         if (typeof val == "number") {
           this.locationCode = val.toString();
@@ -314,7 +379,7 @@ export default {
   },
   computed: {
     //过滤level值
-    LEVEL() {
+    LEVEL:function() {
       if (this.level < 1 || this.level > 4) {
         return 4;
       } else {

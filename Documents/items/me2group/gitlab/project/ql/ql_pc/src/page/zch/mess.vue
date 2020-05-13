@@ -2,15 +2,30 @@
   <div class="mess">
     <div class="content">
       <!-- 订单通知 -->
-      <div class="inform" v-for="(items,i) of inform" :key="i">
-        <h4 class="title">{{items.title}}</h4>
+      <div class="inform">
+        <h4 class="title">订单通知</h4>
+
         <div class="cont">
-          <p class="name">{{items.name}}</p>
-          <div class="shop" v-for="(item,j) of items.shop" :key="j" @click="jump(i,j)">
+          <p class="name">您的订单待支付</p>
+
+          <div class="shop" v-for="(item,j) of shop" :key="j" @click="orderHandle(item)">
             <div>
-              <img :src="item.img" alt />
+              <img :src="item.photo" alt/>
             </div>
-            <p class="self">{{item.self}}</p>
+            <p class="self">{{item.name}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- 系统通知 -->
+      <div class="inform">
+        <h4 class="title">系统通知</h4>
+
+        <div class="cont">
+          <div class="shop" v-for="(item,j) of inform" :key="j" @click="systemHandle(item)">
+            <div>
+              <img :src="item.photo" alt/>
+            </div>
+            <p class="self">{{item.name}}</p>
           </div>
         </div>
       </div>
@@ -19,137 +34,159 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      inform: [
-        {
-          title: "订单通知",
-          name: "您的订单待支付",
-          shop: [
-            {
-              img: require("../../assets/image/zch/mg1.png"),
-              self:
-                "订单【正品七匹狼男士真皮皮带韩版纯牛皮中年青年腰带自动扣腰带】还没有付款，别忘记您的宝贝哦。"
-            },
-            {
-              img: require("../../assets/image/zch/mg1.png"),
-              self:
-                "订单【正品七匹狼男士真皮皮带韩版纯牛皮中年青年腰带自动扣腰带】还没有付款，别忘记您的宝贝哦。"
-            },
-            {
-              img: require("../../assets/image/zch/mg1.png"),
-              self:
-                "订单【正品七匹狼男士真皮皮带韩版纯牛皮中年青年腰带自动扣腰带】还没有付款，别忘记您的宝贝哦。"
-            },
-            {
-              img: require("../../assets/image/zch/mg1.png"),
-              self:
-                "订单【正品七匹狼男士真皮皮带韩版纯牛皮中年青年腰带自动扣腰带】还没有付款，别忘记您的宝贝哦。"
+  import API from '../../api/index';
+  import {publicFn} from '../../utils/util';
+  export default {
+    data: function () {
+      return {
+        shop: [],
+        inform: []
+      };
+    },
+    created: function () {
+      if (publicFn.getStore("qluserInfo")) {
+        this.userinfo = JSON.parse(publicFn.getStore("qluserInfo"));
+        this.init();
+      }
+      else {
+        this.$router.push('/Login')
+      }
+    },
+    methods: {
+      init: function () {
+        this.headerobj = {token: this.userinfo.token, userId: this.userinfo.id};
+
+        //订单列表
+        this.orderMessageList();
+
+        //系统列表
+        this.systemMessageList();
+      },
+      //订单列表
+      orderMessageList: function () {
+        var _this = this;
+        API.request({
+          method: "post",
+          url: API.myMsglist,
+          headers: this.headerobj,
+          data: API.qs.stringify({type: 1})
+        }).then(function (e) {
+          if (e.data.code == 200) {
+            if (e.data.success) {
+              _this.shop = e.data.data;
             }
-          ]
-        },
-        {
-          title: "系统通知",
-          shop: [
-            {
-              img: require("../../assets/image/zch/1.png"),
-              self:
-                "平台2019/08/30-2019/09/30期间全场商品8折，满20000送精美礼品。"
-            },
-            {
-              img: require("../../assets/image/zch/1.png"),
-              self:
-                "平台2019/08/30-2019/09/30期间全场商品8折，满20000送精美礼品。"
-            },
-            {
-              img: require("../../assets/image/zch/1.png"),
-              self:
-                "平台2019/08/30-2019/09/30期间全场商品8折，满20000送精美礼品。"
-            },
-            {
-              img: require("../../assets/image/zch/1.png"),
-              self:
-                "平台2019/08/30-2019/09/30期间全场商品8折，满20000送精美礼品。"
+            else {
+              _this.$message.error(JSON.stringify(e.data.msg));
             }
-          ]
-        }
-      ]
-    };
-  },
-  methods: {
-    jump(a, b) {
-      if (a == 1) {
-        this.$router.push("/mess_details");
+          }
+          else {
+            _this.$message.error(JSON.stringify(e.data.msg));
+          }
+
+        }).catch(function (e) {
+          console.log(e)
+          _this.$message.error(JSON.stringify(e));
+        })
+      },
+      //系统列表
+      systemMessageList: function () {
+        var _this = this;
+        API.request({
+          method: "post",
+          url: API.myMsglist,
+          headers: this.headerobj,
+          data: API.qs.stringify({type: 2})
+        }).then(function (e) {
+          if (e.data.code == 200) {
+            if (e.data.success) {
+              _this.inform = e.data.data;
+            }
+            else {
+              _this.$message.error(JSON.stringify(e.data.msg));
+            }
+          }
+          else {
+            _this.$message.error(JSON.stringify(e.data.msg));
+          }
+
+        }).catch(function (e) {
+          _this.$message.error(JSON.stringify(e));
+        })
+      },
+      orderHandle: function (row) {
+        this.$router.push({path: "/mess_details", query: {id: row.id}});
+      },
+      systemHandle: function (row) {
+        this.$router.push({path: "/mess_details", query: {id: row.id}});
       }
     }
   }
-};
+  ;
 </script>
 
 <style lang="less" scoped>
-.mess {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fff;
-  .content {
-    width: 1280px;
-    .inform {
+  .mess {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    .content {
       width: 1280px;
-      padding:30px;
-      box-sizing: border-box;
-      .title {
-        font-size: 28px;
-        font-family: PingFangSC-Medium, PingFang SC;
-        font-weight: 500;
-        color: rgba(0, 0, 0, 1);
-        line-height: 40px;
-      }
-      .cont {
-        margin-top: 20px;
-        border: 4px solid rgba(245, 245, 245, 1);
-        padding: 47px 30px 0;
-        .name {
-          font-size: 20px;
+      .inform {
+        width: 1280px;
+        padding: 30px;
+        box-sizing: border-box;
+        .title {
+          font-size: 28px;
           font-family: PingFangSC-Medium, PingFang SC;
           font-weight: 500;
           color: rgba(0, 0, 0, 1);
-          line-height: 28px;
-          margin-left: 26px;
+          line-height: 40px;
         }
-        .shop {
-          display: flex;
-          align-items: center;
-          border-bottom: 1px solid #F5F5F5;
-          img {
-            width: 103px;
-            height: 103px;
-          }
-          p.self {
+        .cont {
+          margin-top: 20px;
+          border: 4px solid rgba(245, 245, 245, 1);
+          padding: 47px 30px 0;
+          .name {
             font-size: 20px;
-            font-family: PingFangSC-Regular, PingFang SC;
-            font-weight: 400;
-            color: rgba(74, 74, 74, 1);
+            font-family: PingFangSC-Medium, PingFang SC;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 1);
             line-height: 28px;
-            margin-left: 30px;
+            margin-left: 26px;
+          }
+          .shop {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #F5F5F5;
+            img {
+              width: 103px;
+              height: 103px;
+            }
+            p.self {
+              font-size: 20px;
+              font-family: PingFangSC-Regular, PingFang SC;
+              font-weight: 400;
+              color: rgba(74, 74, 74, 1);
+              line-height: 28px;
+              margin-left: 30px;
+            }
           }
         }
       }
-    }
-    .inform:nth-child(2) {
-      margin-bottom: 298px;
-      .cont {
-        .shop {
-          margin-bottom: 57px;
-          img {
-            width: 80px;
-            height: 36px;
+      .inform:nth-child(2) {
+        margin-bottom: 298px;
+        .cont {
+          .shop {
+            margin-bottom: 57px;
+            img {
+              width: 80px;
+              height: 36px;
+            }
           }
         }
       }
     }
   }
-}
 </style>

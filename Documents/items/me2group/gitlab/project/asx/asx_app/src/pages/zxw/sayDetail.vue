@@ -320,7 +320,12 @@
       };
     },
     created: function () {
-      this.userinfo = {token: "asxtoken", id: '1'};
+      if (publicFn.getStore("asxUserInfo")) {
+        this.userinfo = JSON.parse(publicFn.getStore("asxUserInfo"));
+      }
+      else {
+        this.userinfo = {token: "asxtoken", id: '1'};
+      }
       this.init();
     },
     methods: {
@@ -803,7 +808,7 @@
     height: 3.89rem;
     background-color: #ccc;
     margin-top: 0.3rem;
-    overflow: hidden;;
+    overflow: hidden;
   }
 
   .textImg1 {

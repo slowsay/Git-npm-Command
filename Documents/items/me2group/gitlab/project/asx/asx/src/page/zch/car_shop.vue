@@ -348,13 +348,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>$size: 0.8;
 .car_shop {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 1280px;
+  width: 1280px*$size;
   margin: auto;
 }
 .content {
@@ -365,13 +365,13 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 5px dotted rgba(102, 102, 102, 1);
+  border-bottom: 5px*$size dotted rgba(102, 102, 102, 1);
   padding-bottom: 1%;
   margin-bottom: 2%;
 }
 .content .top .image {
-  width: 153px;
-  height: 51px;
+  width: 153px*$size;
+  height: 51px*$size;
 }
 .content .top .cash {
   display: flex;
@@ -379,36 +379,36 @@ export default {
   justify-content: center;
   background: url("../../assets/img/zch/car/666.png") no-repeat;
   background-size: 100%;
-  margin-right: 10px;
-  width: 100px;
-  height: 40px;
+  margin-right: 10px*$size;
+  width: 100px*$size;
+  height: 40px*$size;
   position: relative;
 }
 .content .top .cash p {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 36px;
-  margin-right: 5px;
+  line-height: 36px*$size;
+  margin-right: 5px*$size;
 }
 .content .top .cash img {
-  width: 10px;
-  height: 7px;
+  width: 10px*$size;
+  height: 7px*$size;
 }
 .content .top .cash .right_top {
   position: absolute;
-  top: -9px;
-  right: -3px;
-  width: 16px;
-  height: 16px;
+  top: -9px*$size;
+  right: -3px*$size;
+  width: 16px*$size;
+  height: 16px*$size;
   display: flex;
   justify-content: center;
   align-items: center;
   background: rgba(224, 18, 32, 1);
-  border: 1px solid rgba(255, 255, 255, 1);
+  border: 1px*$size solid rgba(255, 255, 255, 1);
   border-radius: 50%;
-  font-size: 12px;
+  font-size: 12px*$size;
   font-family: Microsoft YaHei;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
@@ -432,32 +432,32 @@ export default {
   align-items: center;
 }
 .swite {
-  width: 20px;
-  height: 20px;
+  width: 20px*$size;
+  height: 20px*$size;
 }
 .con {
   background: rgba(255, 255, 255, 1);
-  border: 4px solid rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
-  margin: 17px 0;
-  padding: 30px;
+  border: 4px*$size solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px*$size;
+  margin: 17px*$size 0;
+  padding: 30px*$size;
   display: flex;
   justify-content: space-between;
 }
 .con .text_img .sp {
-  width: 100px;
-  height: 100px;
+  width: 100px*$size;
+  height: 100px*$size;
   margin-left: 3%;
 }
 .con .text_img .disbtn {
-  font-size: 14px;
+  font-size: 14px*$size;
   font-family: PingFang SC;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
   background: rgba(219, 219, 219, 1);
-  border-radius: 4px;
-  width: 44px;
-  height: 26px;
+  border-radius: 4px*$size;
+  width: 44px*$size;
+  height: 26px*$size;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -476,21 +476,21 @@ export default {
   margin-left: 3%;
 }
 .con .content_left .text h4 {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
 }
 .con .content_left .text p {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(153, 153, 153, 1);
-  line-height: 24px;
+  line-height: 24px*$size;
   margin-top: 7%;
 }
 .con .price {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: PingFang SC;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
@@ -498,7 +498,7 @@ export default {
   text-align: center;
 }
 .con .policy {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: PingFang SC;
   font-weight: 400;
   color: rgba(224, 18, 32, 1);
@@ -506,7 +506,7 @@ export default {
   text-align: center;
 }
 .con .total {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: PingFang SC;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
@@ -518,7 +518,7 @@ export default {
   text-align: center;
 }
 .con .con_right p {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: PingFang SC;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
@@ -528,19 +528,19 @@ export default {
 }
 .gray {
   background: #dbdbdb;
-  border: 4px solid rgba(0, 0, 0, 0.08);
+  border: 4px*$size solid rgba(0, 0, 0, 0.08);
 }
 .button_close {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: 40px*$size;
   align-items: center;
 }
 .close {
   width: 70%;
-  height: 60px;
-  border: 4px solid rgba(230, 230, 230, 1);
-  border-radius: 10px;
+  height: 60px*$size;
+  border: 4px*$size solid rgba(230, 230, 230, 1);
+  border-radius: 10px*$size;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -550,13 +550,13 @@ export default {
   align-items: center;
   justify-content: space-around;
   width: 40%;
-  margin-left: 18px;
+  margin-left: 18px*$size;
 }
 .close_left .left {
   display: flex;
 }
 .close_left > p {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
@@ -569,7 +569,7 @@ export default {
 }
 .close_right .pitch {
   display: flex;
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
@@ -581,7 +581,7 @@ export default {
 }
 .close_right .total_price {
   display: flex;
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
@@ -590,64 +590,64 @@ export default {
 .button_close .view {
   display: flex;
   align-items: center;
-  border: 4px solid rgba(230, 230, 230, 1);
-  border-radius: 10px;
+  border: 4px*$size solid rgba(230, 230, 230, 1);
+  border-radius: 10px*$size;
   width: 12%;
   justify-content: space-around;
-  height: 60px;
+  height: 60px*$size;
 }
 .button_close .view h4 {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
 }
 .button_close .view p {
-  width: 16px;
-  height: 16px;
+  width: 16px*$size;
+  height: 16px*$size;
   background: rgba(224, 18, 32, 1);
-  border: 1px solid rgba(255, 255, 255, 1);
+  border: 1px*$size solid rgba(255, 255, 255, 1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 12px*$size;
   font-family: Microsoft YaHei;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
 }
 .clear_btn {
   width: 12%;
-  height: 60px;
+  height: 60px*$size;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: rgba(224, 18, 32, 1);
-  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
+  box-shadow: 0px*$size -1px*$size 0px*$size 0px*$size rgba(0, 0, 0, 0.08);
+  border-radius: 10px*$size;
 }
 .clear_btn .china {
-  font-size: 20px;
+  font-size: 20px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
 }
 .clear_btn .jupan {
-  font-size: 12px;
+  font-size: 12px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
 }
 .poop {
-  border: 4px solid rgba(230, 230, 230, 1);
-  border-radius: 10px;
+  border: 4px*$size solid rgba(230, 230, 230, 1);
+  border-radius: 10px*$size;
   width: 25%;
   position: absolute;
   right: 1%;
   bottom: 10%;
   background: #fff;
-  padding: 24px 20px;
+  padding: 24px*$size 20px*$size;
 }
 .poop .poop_top {
   display: flex;
@@ -655,18 +655,18 @@ export default {
   align-items: center;
 }
 .poop .poop_top h4 {
-  font-size: 20px;
+  font-size: 20px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
 }
 .fixe_border {
-  border-bottom: 2px dotted rgb(102, 102, 102);
+  border-bottom: 2px*$size dotted rgb(102, 102, 102);
   padding-bottom: 2%;
 }
 .fixe_border img {
-  width: 12px;
-  height: 10px;
+  width: 12px*$size;
+  height: 10px*$size;
 }
 .poop_con {
   display: flex;
@@ -675,14 +675,14 @@ export default {
   margin-bottom: 4%;
 }
 .trigger {
-  width: 20px;
-  height: 20px;
+  width: 20px*$size;
+  height: 20px*$size;
 }
 .select_red {
   color: red;
 }
 .poop_button p {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: PingFang SC;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
@@ -693,20 +693,20 @@ export default {
 }
 .poop_button .input_box input {
   width: 80%;
-  height: 40px;
-  font-size: 18px;
+  height: 40px*$size;
+  font-size: 18px*$size;
   font-family: PingFang SC;
   font-weight: 400;
 }
 .poop_button .input_box button {
   width: 15%;
-  height: 40px;
+  height: 40px*$size;
   margin-left: 1%;
   border: 0;
   outline: 0;
   background: rgba(224, 18, 32, 1);
-  border-radius: 4px;
-  font-size: 18px;
+  border-radius: 4px*$size;
+  font-size: 18px*$size;
   font-family: PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);

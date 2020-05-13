@@ -64,6 +64,8 @@
 </template>
 
 <script>
+  import API from '../../api/index';
+  import {publicFn} from '../../utils/util';
   export default {
     data: function () {
       return {
@@ -81,7 +83,19 @@
         }
       };
     },
+    created: function () {
+      if (publicFn.getStore("asxUserInfo")) {
+        this.userinfo = JSON.parse(publicFn.getStore("asxUserInfo"));
+      }
+      else {
+        this.userinfo = {token: "asxtoken", id: '1'};
+      }
+      this.init();
+    },
     methods: {
+      init: function () {
+
+      },
       //性别选择点击男时
       selectMan: function () {
         (this.form.sex = "男"), (this.sexShow = false);

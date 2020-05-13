@@ -12,25 +12,22 @@
         <img class="shouji" slot="prefix" src="../../assets/img/zxw/mima.png" alt />
       </el-input>
       <el-checkbox v-model="checked" text-color="red"></el-checkbox>
-      <span>记住我的登录状态</span>
+      <span style="font-size:12px;margin-left:8px">记住我的登录状态</span>
       <div class="forget">
         <span @click="$router.push('ret_pass')">忘记密码</span>
-        <span  style="margin-left:18px" @click="$refs.Register.dialogVisible=true">快速注册</span>
+        <span style="margin-left:14px" @click="$router.push('/Register')">快速注册</span>
       </div>
       <button class="btn" @click="login">立即登录</button>
       <div class="bottom">
         <span style="float:left">其他登录方式</span>
-        <img class="qq" src="../../assets/img/zxw/qq.png" alt="">
-        <img class="wechat" src="../../assets/img/zxw/wechat.png" alt="">
+        <img class="qq" src="../../assets/img/zxw/qq.png" alt />
+        <img class="wechat" src="../../assets/img/zxw/wechat.png" alt />
         <span style="float:right" @click="$router.push('/rapid_pass')">快速登录></span>
       </div>
     </div>
-    
-    <Register ref="Register"></Register>
   </div>
 </template>
 <script>
-import Register from '../gw/Register'
 import navbar from "../../components/nav";
 export default {
   data() {
@@ -40,91 +37,90 @@ export default {
       checked: ""
     };
   },
-  methods:{
-    login(){
-      this.$router.push('/index')
+  methods: {
+    login() {
+      this.$router.push("/index");
     }
   },
   components: {
     navbar,
-    Register
   }
 };
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
+$size: 0.8;
 .login {
   .top {
-    width: 1280px;
+    width: 1280px * $size;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 40px * $size;
   }
   .contain {
-    width: 570px;
-    height: 591px;
+    width: 570px * $size;
+    height: 591px * $size;
     background: rgba(255, 255, 255, 1);
-    border: 4px solid rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
-    margin: 145px auto;
-    padding: 69px 60px 0 60px;
+    border: 4px * $size solid rgba(0, 0, 0, 0.08);
+    border-radius: 20px * $size;
+    margin: 145px * $size auto 0;
+    padding: 69px * $size 60px * $size 0 60px * $size;
     box-sizing: border-box;
     .login1 {
-      font-size: 30px;
+      font-size: 30px * $size;
       font-family: DFYuanW5-GB;
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
-      margin-bottom: 60px;
-      width: 200px;
+      margin-bottom: 60px * $size;
+      width: 200px * $size;
     }
-    /deep/.el-input__inner {
-      width: 450px;
-      height: 56px;
-      border-radius: 28px;
-      margin-bottom: 40px;
-      padding-left: 70px;
-      font-size: 16px;
+    >>> .el-input__inner {
+      display: flex;
+      align-items: center;
+      height: 56px * $size;
+      border-radius: 28px * $size;
+      margin-bottom: 40px * $size;
+      padding-left: 70px * $size;
+      font-size: 16px * $size;
     }
     .shouji {
-      height: 24px;
-      margin: 16px 30px;
+      height: 24px * $size;
+      margin: 15px * $size 20px * $size;
     }
     .forget {
       float: right;
-      font-size: 16px;
+      font-size: 16px * $size;
       font-family: DFYuanW5-GB;
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
     }
-    .btn{
-      width:450px;
-      height:56px;
-      background:rgba(224,18,32,1);
-      border-radius:28px;
-      border:none;
-      font-size:18px;
-font-family:DFYuanW5-GB;
-font-weight:400;
-color:rgba(255,255,255,1);
-margin-top:30px;
+    .btn {
+      width: 450px * $size;
+      height: 56px * $size;
+      background: rgba(224, 18, 32, 1);
+      border-radius: 28px * $size;
+      border: none;
+      font-size: 18px * $size;
+      font-family: DFYuanW5-GB;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      margin-top: 30px * $size;
     }
-    .bottom{
-      font-size:16px;
-      font-family:DFYuanW5-GB;
-      font-weight:400;
-      color:rgba(51,51,51,1);
-      margin-top:35px;
-      height: 40px;
-   .qq{
-     width: 22px;
-     height: 25px;
-     margin-left: 80px;
-   }
-   .wechat{
-     height: 23px;
-     margin-left: 40px;
-     
-   }
+    .bottom {
+      font-size: 16px * $size;
+      font-family: DFYuanW5-GB;
+      font-weight: 400;
+      color: rgba(51, 51, 51, 1);
+      margin-top: 35px * $size;
+      height: 40px * $size;
+      .qq {
+        width: 22px * $size;
+        height: 25px * $size;
+        margin-left: 80px * $size;
+      }
+      .wechat {
+        height: 23px * $size;
+        margin-left: 40px * $size;
+      }
     }
-
   }
 }
 </style>

@@ -36,7 +36,7 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>$size: 0.8;
 .ret_pass {
   position: relative;
   display: flex;
@@ -46,43 +46,43 @@ export default {
   width: 100%;
 }
 .pass {
-  margin-top: 35px;
+  margin-top: 35px*$size;
   width: 50%;
   background: rgba(255, 255, 255, 1);
-  border: 4px solid rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-  padding: 0 56px;
+  border: 4px*$size solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px*$size;
+  padding: 0 56px*$size;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .pass .title {
-  font-size: 30px;
+  font-size: 30px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
-  line-height: 36px;
-  margin: 39px 0;
+  line-height: 36px*$size;
+  margin: 39px*$size 0;
 }
 .pass .name {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
-  line-height: 24px;
+  line-height: 24px*$size;
 }
 .pass .btn {
   background: rgba(224, 18, 32, 1);
-  border-radius: 28px;
+  border-radius: 28px*$size;
   outline: none;
   border: 0;
   width: 17%;
-  height: 36px;
-  font-size: 18px;
+  height: 36px*$size;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
-  margin: 22px 0;
+  margin: 22px*$size 0;
 }
 </style>

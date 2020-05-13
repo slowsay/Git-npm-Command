@@ -6,14 +6,19 @@
       <p class="name">找回密码</p>
       <!-- 手机号 -->
       <div class="phone">
-        <img src="../../assets/img/zch/phone.png" alt />
-        <input type="text" placeholder="请输入手机号码" v-model="phone" />
+        
+        <!-- <input type="text" placeholder="请输入手机号码" v-model="phone" /> -->
+        <el-input placeholder="请输入手机号" v-model="phone">
+          <img class="shouji" slot="prefix" style="margin:12px" src="../../assets/img/zch/phone.png" alt />
+    </el-input>
       </div>
       <!-- 验证码 -->
       <div class="note">
         <div class="phones">
-          <img src="../../assets/img/zch/reg.png" alt />
-          <input type="text" placeholder="短信验证码" v-model="reg" />
+          <!-- <input type="text" placeholder="短信验证码" v-model="reg" /> -->
+          <el-input placeholder="短信验证码" v-model="reg">
+            <img class="shouji" slot="prefix" style="margin:12px"  src="../../assets/img/zch/reg.png" alt />
+          </el-input>
         </div>
         <button class="btn">获取验证码</button>
       </div>
@@ -23,7 +28,7 @@
       <div class="bottom">
         <p class="title" @click="jump('/')">账号登录</p>
         <div class="text">
-          <p class="title" @click="jump">快速注册</p>
+          <p class="title" @click="$router.push('Register')">快速注册</p>
           <img src="../../assets/img/zch/up.png" alt />
         </div>
       </div>
@@ -55,26 +60,37 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>$size: 0.8;
 .ret_pass {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 1280px*$size;
+  margin: 0 auto;
 }
+ >>>.el-input__inner {
+      display: flex;
+      align-items: center;
+      height: 56px*$size;
+      border-radius: 28px*$size;
+      margin-bottom: 20px*$size;
+      padding-left: 70px*$size;
+      font-size: 16px*$size;
+    }
 .pass {
-  margin-top: 35px;
-  width: 50%;
+  margin-top: 170px*$size;
+  width: 570px*$size;
   background: rgba(255, 255, 255, 1);
-  border: 4px solid rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-  padding: 0 56px;
+  border: 4px*$size solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px*$size;
+  padding: 0 56px*$size;
+  box-sizing: border-box;
 }
 .name {
-  margin: 69px 0 60px;
-  font-size: 30px;
+  margin: 69px*$size 0 60px*$size;
+  font-size: 30px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
@@ -84,20 +100,20 @@ export default {
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 40px*$size;
 }
 .phone img {
   position: absolute;
   left: 6%;
-  width: 17px;
-  height: 24px;
+  width: 17px*$size;
+  height: 24px*$size;
 }
 .phone input {
   width: 100%;
-  height: 56px;
-  padding-left: 100px;
-  font-size: 30px;
-  border-radius: 30px;
+  height: 56px*$size;
+  padding-left: 100px*$size;
+  font-size: 30px*$size;
+  border-radius: 30px*$size;
   outline: none;
 }
 .note {
@@ -109,45 +125,45 @@ export default {
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 40px*$size;
 }
 .note .phones input {
   width: 100%;
-  height: 56px;
-  padding-left: 100px;
-  font-size: 30px;
-  border-radius: 30px;
+  height: 56px*$size;
+  padding-left: 100px*$size;
+  font-size: 30px*$size;
+  border-radius: 30px*$size;
   outline: none;
 }
 .note .phones img {
   position: absolute;
   left: 8%;
-  width: 17px;
-  height: 24px;
+  width: 17px*$size;
+  height: 24px*$size;
 }
 .note .btn {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
   background: rgba(224, 18, 32, 1);
-  border-radius: 28px;
+  border-radius: 28px*$size;
   outline: none;
   border: 0;
-  height: 56px;
+  height: 56px*$size;
   width: 38%;
   margin-left: 3%;
 }
 .next {
-  font-size: 18px;
+  font-size: 18px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
   width: 100%;
-  height: 56px;
-  margin: 20px 0;
+  height: 56px*$size;
+  margin: 20px*$size 0;
   background: rgba(224, 18, 32, 1);
-  border-radius: 28px;
+  border-radius: 28px*$size;
   outline: none;
   border: 0;
 }
@@ -155,7 +171,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 15px 0 59px;
+  margin: 15px*$size 0 59px*$size;
 }
 .text {
   display: flex;
@@ -163,11 +179,11 @@ export default {
   align-items: center;
 }
 .text img {
-  width: 9px;
-  height: 14px;
+  width: 9px*$size;
+  height: 14px*$size;
 }
 .title {
-  font-size: 16px;
+  font-size: 16px*$size;
   font-family: DFYuanW5-GB;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);

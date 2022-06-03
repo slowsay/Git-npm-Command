@@ -13,7 +13,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "@angular/core": "^8.2.14",
+    "@angular/core": "^11.0.5",
     "@ionic-native/core": "^5.18.0",
     "@ionic-native/wechat": "^5.18.0",
     "async-validator": "^3.2.2",
